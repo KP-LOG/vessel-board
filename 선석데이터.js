@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-18T16:00",
+   "fetchedAt": "2026-11-18T16:30",
    "count": 70,
    "rows": [
     {
@@ -130,7 +130,7 @@ window.BERTH_DATA = {
      "voyage": "",
      "berth": "1",
      "eta": "2026-11-19T15:00",
-     "etd": "2026-11-20T12:00",
+     "etd": "2026-11-20T18:00",
      "closing": "2026-11-19T05:00",
      "vessel": "KMTC KEELUNG",
      "line": "KMD",
@@ -156,7 +156,7 @@ window.BERTH_DATA = {
      "voyage": "",
      "berth": "감만1 A",
      "eta": "2026-11-20T01:00",
-     "etd": "2026-11-20T18:00",
+     "etd": "2026-11-20T23:00",
      "closing": "2026-11-19T15:00",
      "vessel": "SKY FLOWER",
      "line": "CKL",
@@ -189,19 +189,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "HK-SWAT04",
-     "terminal": "허치슨",
-     "vvd": "SWAT04",
-     "voyage": "",
-     "berth": "1",
-     "eta": "2026-11-20T13:00",
-     "etd": "2026-11-21T12:00",
-     "closing": "2026-11-20T03:00",
-     "vessel": "SAWASDEE ATLANTIC",
-     "line": "SKR",
-     "state": "예정"
-    },
-    {
      "id": "HK-CKP172",
      "terminal": "허치슨",
      "vvd": "CKP172",
@@ -219,7 +206,7 @@ window.BERTH_DATA = {
      "terminal": "허치슨",
      "vvd": "TYIC54",
      "voyage": "",
-     "berth": "감만1 A",
+     "berth": "1",
      "eta": "2026-11-20T19:00",
      "etd": "2026-11-21T04:00",
      "closing": "2026-11-20T09:00",
@@ -238,6 +225,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-20T16:00",
      "vessel": "BELAWAN",
      "line": "KMD",
+     "state": "예정"
+    },
+    {
+     "id": "HK-SWAT04",
+     "terminal": "허치슨",
+     "vvd": "SWAT04",
+     "voyage": "",
+     "berth": "1",
+     "eta": "2026-11-21T05:00",
+     "etd": "2026-11-22T04:00",
+     "closing": "2026-11-20T19:00",
+     "vessel": "SAWASDEE ATLANTIC",
+     "line": "SKR",
      "state": "예정"
     },
     {
@@ -263,19 +263,6 @@ window.BERTH_DATA = {
      "etd": "2026-11-22T12:00",
      "closing": "2026-11-21T04:00",
      "vessel": "ZHONG GU PENG LAI",
-     "line": "KMD",
-     "state": "예정"
-    },
-    {
-     "id": "HK-KSDL43",
-     "terminal": "허치슨",
-     "vvd": "KSDL43",
-     "voyage": "",
-     "berth": "1",
-     "eta": "2026-11-21T19:00",
-     "etd": "2026-11-22T12:00",
-     "closing": "2026-11-21T09:00",
-     "vessel": "SUNNY DAHLIA",
      "line": "KMD",
      "state": "예정"
     },
@@ -306,15 +293,15 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "HK-KKXM10",
+     "id": "HK-KSDL43",
      "terminal": "허치슨",
-     "vvd": "KKXM10",
+     "vvd": "KSDL43",
      "voyage": "",
      "berth": "1",
-     "eta": "2026-11-22T14:00",
-     "etd": "2026-11-23T12:00",
-     "closing": "2026-11-20T00:00",
-     "vessel": "KMTC XIAMEN",
+     "eta": "2026-11-22T06:00",
+     "etd": "2026-11-22T18:00",
+     "closing": "2026-11-21T20:00",
+     "vessel": "SUNNY DAHLIA",
      "line": "KMD",
      "state": "예정"
     },
@@ -328,6 +315,19 @@ window.BERTH_DATA = {
      "etd": "2026-11-23T12:00",
      "closing": "2026-11-22T04:00",
      "vessel": "KMTC SEOUL",
+     "line": "KMD",
+     "state": "예정"
+    },
+    {
+     "id": "HK-KKXM10",
+     "terminal": "허치슨",
+     "vvd": "KKXM10",
+     "voyage": "",
+     "berth": "1",
+     "eta": "2026-11-22T20:00",
+     "etd": "2026-11-23T18:00",
+     "closing": "2026-11-22T10:00",
+     "vessel": "KMTC XIAMEN",
      "line": "KMD",
      "state": "예정"
     },
@@ -920,7 +920,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-18T16:00",
+   "fetchedAt": "2026-11-18T16:30",
    "count": 120,
    "rows": [
     {
@@ -969,7 +969,7 @@ window.BERTH_DATA = {
      "voyage": "PCNB-38",
      "berth": "4",
      "eta": "2026-11-18T03:00",
-     "etd": "2026-11-18T19:00",
+     "etd": "2026-11-18T21:00",
      "closing": "2026-11-17T18:00",
      "vessel": "PACIFIC NINGBO",
      "line": "HAS",
@@ -1106,6 +1106,19 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "BP-SWSP-13",
+     "terminal": "신선대",
+     "vvd": "SWSP-13",
+     "voyage": "SWSP-13",
+     "berth": "5",
+     "eta": "2026-11-19T08:00",
+     "etd": "2026-11-20T12:00",
+     "closing": "2026-11-18T22:00",
+     "vessel": "SAWASDEE SPICA",
+     "line": "SKR",
+     "state": "예정"
+    },
+    {
      "id": "BP-NACF-7",
      "terminal": "신선대",
      "vvd": "NACF-7",
@@ -1129,19 +1142,6 @@ window.BERTH_DATA = {
      "closing": "2026-11-18T14:00",
      "vessel": "ZHONG WAI YUN SHENZHEN",
      "line": "SNL",
-     "state": "예정"
-    },
-    {
-     "id": "BP-SWSP-13",
-     "terminal": "신선대",
-     "vvd": "SWSP-13",
-     "voyage": "SWSP-13",
-     "berth": "5",
-     "eta": "2026-11-19T11:00",
-     "etd": "2026-11-20T15:00",
-     "closing": "2026-11-19T01:00",
-     "vessel": "SAWASDEE SPICA",
-     "line": "SKR",
      "state": "예정"
     },
     {
@@ -1301,6 +1301,19 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "BP-HPLK-11",
+     "terminal": "신선대",
+     "vvd": "HPLK-11",
+     "voyage": "HPLK-11",
+     "berth": "5",
+     "eta": "2026-11-20T14:00",
+     "etd": "2026-11-22T13:00",
+     "closing": "2026-11-20T04:00",
+     "vessel": "HAPPY LUCKY",
+     "line": "JJS",
+     "state": "예정"
+    },
+    {
      "id": "BP-NSVY-46",
      "terminal": "신선대",
      "vvd": "NSVY-46",
@@ -1324,19 +1337,6 @@ window.BERTH_DATA = {
      "closing": "2026-11-20T07:00",
      "vessel": "STAR CHALLENGER",
      "line": "NSL",
-     "state": "예정"
-    },
-    {
-     "id": "BP-HPLK-11",
-     "terminal": "신선대",
-     "vvd": "HPLK-11",
-     "voyage": "HPLK-11",
-     "berth": "5",
-     "eta": "2026-11-20T17:00",
-     "etd": "2026-11-22T16:00",
-     "closing": "2026-11-20T07:00",
-     "vessel": "HAPPY LUCKY",
-     "line": "JJS",
      "state": "예정"
     },
     {
@@ -1800,8 +1800,8 @@ window.BERTH_DATA = {
      "vvd": "PSUC-40",
      "voyage": "PSUC-40",
      "berth": "7",
-     "eta": "2026-11-23T06:00",
-     "etd": "2026-11-23T23:00",
+     "eta": "2026-11-23T07:00",
+     "etd": "2026-11-24T00:00",
      "closing": "2026-11-21T16:00",
      "vessel": "PANCON SUCCESS",
      "line": "PCL",
