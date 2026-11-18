@@ -1,2 +1,9 @@
 .vercel
 .netlify
+# 개인 추적 목록·알림 기록·로컬 실행 파일은 올리지 않음
+추적모선.json
+알림_상태.json
+알림_설정.json
+선석조회_기록.txt
+__pycache__/
+.env

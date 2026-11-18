@@ -2,120 +2,116 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>모선 일정 변경 확인판</title>
 <style>
-/* 레이아웃: 상단 요약 → 확인 필요 → 변동 없음 → 안내 초안 → 양하완료, 한 열로 훑어보는 작업판 */
 :root{
-  --bg:#f3f5f8; --card:#ffffff; --ink:#1b2333; --muted:#5f6b80; --line:#dde2ea; --soft:#eaeef4;
-  --accent:#1d5fae; --accent-ink:#ffffff;
-  --red:#b9301d; --red-bg:#fbe9e6; --blue:#1667a8; --blue-bg:#e4effa;
-  --amber:#975700; --amber-bg:#fdf1d8; --green:#1d7543; --green-bg:#e3f2e9;
-  --font:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;
+  --bg:#f5f6f8; --card:#ffffff; --ink:#1d2330; --muted:#667085; --line:#e3e6ec;
+  --accent:#1f5fbf; --accent-ink:#ffffff;
+  --red:#c4321f; --red-bg:#fdecea; --blue:#1b6fb8; --blue-bg:#e7f1fb;
+  --amber:#a15c00; --amber-bg:#fff3dc; --green:#1f7a45; --green-bg:#e6f4ec;
+  --gray-bg:#eef0f3;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#13171d; --card:#1b2028; --ink:#e6eaf1; --muted:#9ba5b5; --line:#2d3440; --soft:#232a34;
-    --accent:#62a0f5; --accent-ink:#0c1118;
-    --red:#ff8170; --red-bg:#3a201c; --blue:#73b4ff; --blue-bg:#172a3e;
-    --amber:#ffc163; --amber-bg:#382b15; --green:#64d398; --green-bg:#163025;
-    color-scheme:dark;
+    --bg:#14171c; --card:#1d2128; --ink:#e7eaf0; --muted:#9aa3b2; --line:#2e343e;
+    --accent:#5b9cff; --accent-ink:#0d1117;
+    --red:#ff7b6b; --red-bg:#3a1f1c; --blue:#6fb3ff; --blue-bg:#16283b;
+    --amber:#ffbf5c; --amber-bg:#3a2c14; --green:#5fd394; --green-bg:#163024;
+    --gray-bg:#262b33;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#13171d; --card:#1b2028; --ink:#e6eaf1; --muted:#9ba5b5; --line:#2d3440; --soft:#232a34;
-  --accent:#62a0f5; --accent-ink:#0c1118;
-  --red:#ff8170; --red-bg:#3a201c; --blue:#73b4ff; --blue-bg:#172a3e;
-  --amber:#ffc163; --amber-bg:#382b15; --green:#64d398; --green-bg:#163025;
-  color-scheme:dark;
+  --bg:#14171c; --card:#1d2128; --ink:#e7eaf0; --muted:#9aa3b2; --line:#2e343e;
+  --accent:#5b9cff; --accent-ink:#0d1117;
+  --red:#ff7b6b; --red-bg:#3a1f1c; --blue:#6fb3ff; --blue-bg:#16283b;
+  --amber:#ffbf5c; --amber-bg:#3a2c14; --green:#5fd394; --green-bg:#163024;
+  --gray-bg:#262b33;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:14px;line-height:1.5}
-.wrap{max-width:1180px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
-header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
-header > div{min-width:0}
-h1{margin:0;font-size:22px;text-wrap:balance}
-.sub{color:var(--muted);font-size:13px;max-width:62ch}
-.check{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-variant-numeric:tabular-nums}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",sans-serif;font-size:14px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px}
+h1{margin:0;font-size:22px}
+.sub{color:var(--muted);font-size:13px}
+.check{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.autobar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;margin-bottom:14px;font-size:13px}
+.autobar input{width:60px;padding:3px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit;text-align:right}
 .due.over{color:var(--red);font-weight:700}
 .stats{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-variant-numeric:tabular-nums}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px}
 .stat b{font-size:18px;margin-left:6px}
 .stat.red b{color:var(--red)}
 .toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:12px}
 .chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer;font-size:13px}
 .chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-.grp{font-size:12px;font-weight:700;color:var(--muted);margin:0 2px 0 8px;letter-spacing:.02em}
-#urlList .grp{margin:10px 0 6px}
-.port{display:block;font-size:11px;color:var(--muted)}
-a.btn{text-decoration:none;display:inline-block}
-a.btn.lookup{border-color:var(--accent);color:var(--accent)}
+.spacer{flex:1}
 button{font:inherit;cursor:pointer}
-button:focus-visible,.vname:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px;padding:5px 10px;font-size:13px;white-space:nowrap}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:5px 10px;font-size:13px;white-space:nowrap}
 .btn:hover{border-color:var(--accent)}
 .btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .btn.sm{padding:3px 8px;font-size:12px}
-section.card{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:14px;overflow:hidden}
-.card-h{margin:0;padding:12px 14px;font-size:15px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.card-h .n{color:var(--muted);font-weight:400;font-size:13px}
-.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
-.dot.red{background:var(--red)} .dot.gray{background:var(--muted);opacity:.5} .dot.blue{background:var(--accent)} .dot.green{background:var(--green)}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
+section.card h2{margin:0;padding:12px 14px;font-size:15px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+section.card h2 .n{color:var(--muted);font-weight:400;font-size:13px}
 .scroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:860px;font-size:14px}
+table{width:100%;border-collapse:collapse;min-width:860px}
 th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
-th{font-size:12px;color:var(--muted);font-weight:600;background:var(--soft)}
+th{font-size:12px;color:var(--muted);font-weight:600;background:var(--gray-bg)}
 tr:last-child td{border-bottom:none}
-.vname{font-weight:700;cursor:pointer;background:none;border:none;color:inherit;padding:0;text-align:left}
+.vname{font-weight:700;cursor:pointer}
 .vname:hover{text-decoration:underline}
 .voy{color:var(--muted);font-weight:400;margin-left:4px}
-.time{font-variant-numeric:tabular-nums}
 .time .old{color:var(--muted);text-decoration:line-through;font-size:12px;display:block}
 .time .now{font-weight:600}
 .time .now.chg{color:var(--red)}
-.badge{display:inline-block;border-radius:5px;padding:2px 7px;font-size:12px;font-weight:600;margin:1px 2px 1px 0;white-space:nowrap}
+.badge{display:inline-block;border-radius:6px;padding:2px 7px;font-size:12px;font-weight:600;margin:1px 2px 1px 0;white-space:nowrap}
 .b-late{background:var(--red-bg);color:var(--red)}
 .b-early{background:var(--blue-bg);color:var(--blue)}
-.b-new,.b-name{background:var(--amber-bg);color:var(--amber)}
-.b-same{background:var(--soft);color:var(--muted)}
+.b-new{background:var(--amber-bg);color:var(--amber)}
+.b-name{background:var(--amber-bg);color:var(--amber)}
+.b-same{background:var(--gray-bg);color:var(--muted)}
 .b-done{background:var(--green-bg);color:var(--green)}
 .acts{display:flex;flex-wrap:wrap;gap:4px}
-.hist td{background:var(--soft);font-size:12px;color:var(--muted)}
+.hist td{background:var(--gray-bg);font-size:12px;color:var(--muted)}
 .hist ul{margin:0;padding-left:18px}
 .empty{padding:16px 14px;color:var(--muted)}
 .draft{padding:14px}
-.draft textarea{width:100%;min-height:200px;border:1px solid var(--line);border-radius:6px;padding:10px;background:var(--bg);color:var(--ink);font:inherit;resize:vertical}
+.draft textarea{width:100%;min-height:190px;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--bg);color:var(--ink);font:inherit;resize:vertical}
 .draft .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
 .note{font-size:12px;color:var(--muted)}
-details > summary{list-style:none;cursor:pointer}
-details > summary::-webkit-details-marker{display:none}
-details > summary .card-h{border-bottom:none}
-details[open] > summary .card-h{border-bottom:1px solid var(--line)}
-.caret{color:var(--muted);font-size:12px;margin-left:auto}
-dialog{border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);padding:0;width:min(440px,calc(100% - 32px))}
-dialog::backdrop{background:rgba(0,0,0,.45)}
+details summary{cursor:pointer}
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);padding:0;width:min(440px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(0,0,0,.4)}
 dialog form{padding:18px}
 dialog h3{margin:0 0 12px;font-size:16px}
 .field{margin-bottom:10px}
 .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}
-.field input,.field select{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+.field input,.field select{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media (max-width:420px){.grid2{grid-template-columns:1fr}}
 .dlg-acts{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
-.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:6px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;max-width:calc(100% - 32px)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.show{opacity:1}
-@media (prefers-reduced-motion: reduce){.toast{transition:none}}
 footer{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;margin-top:8px}
-footer > span{min-width:0}
 </style>
 </head>
 <body>
-
 <div class="wrap">
+
+  <div class="autobar">
+    <b>⏱ 자동 트래킹</b>
+    <label>주기 <input type="number" id="autoHours" min="0.5" max="24" step="0.5"> 시간마다</label>
+    <span class="sub" id="autoInfo"></span>
+    <button class="btn primary" id="checkBtn" title="최신 자동 조회 결과로 추적 중인 모선의 시간을 한 번에 점검합니다">🔍 시간 점검</button>
+    <button class="btn" id="notifyBtn" title="추적 모선 목록을 파일(추적모선.json)로 저장해, 자동 조회 때 변경을 알림으로 받습니다">🔔 알림 연결</button>
+    <span class="sub" id="notifyInfo"></span>
+    <span class="sub">조회 사이트: <a href="https://custom.hktl.com/jsp/T01/sunsuk.jsp" target="_blank" rel="noopener">허치슨</a> · <a href="https://info.bptc.co.kr/content/sw/frame/berth_status_text_frame_sw_kr.jsp?p_id=BETX_SH_KR&amp;snb_num=2&amp;snb_div=service" target="_blank" rel="noopener">신선대·감만</a></span>
+  </div>
+
   <header>
     <div>
       <h1>모선 일정 변경 확인판</h1>
-      <div class="sub">터미널 선석배정현황에서 조회한 입항·출항 예정시간을 넣으면, 마지막으로 안내한 시간과 비교해 바뀐 모선을 위로 올려 보여줍니다. 아래 3척은 연습용 더미 데이터입니다.</div>
+      <div class="sub">터미널 선석배정현황에서 조회한 입항·출항 예정시간을 넣으면, 마지막으로 안내한 시간과 비교해 바뀐 모선을 위로 올려 보여줍니다.</div>
     </div>
     <div class="check">
       <span>마지막 확인: <b id="lastCheck">—</b></span>
@@ -134,17 +130,17 @@ footer > span{min-width:0}
   <div class="toolbar" id="filters"></div>
 
   <section class="card">
-    <h2 class="card-h"><span class="dot red"></span>확인이 필요한 모선 <span class="n">시간 변경 · 신규 · 모선명 확인</span></h2>
+    <h2>🔴 확인이 필요한 모선 <span class="n">시간 변경 · 신규 · 모선명 확인</span></h2>
     <div id="attn"></div>
   </section>
 
   <section class="card">
-    <h2 class="card-h"><span class="dot gray"></span>변동 없음 <span class="n">마지막으로 안내한 시간과 같음</span></h2>
+    <h2>⚪ 변동 없음 <span class="n">마지막으로 안내한 시간과 같음</span></h2>
     <div id="same"></div>
   </section>
 
   <section class="card">
-    <h2 class="card-h"><span class="dot blue"></span>포워딩 안내 초안 <span class="n" id="draftFor">변경된 모선의 [초안] 버튼을 누르세요</span></h2>
+    <h2>📝 안내 초안 <span class="n" id="draftFor">변경된 모선의 [초안] 버튼을 누르세요</span></h2>
     <div class="draft">
       <textarea id="draft" readonly placeholder="여기에 초안이 표시됩니다."></textarea>
       <div class="row">
@@ -156,7 +152,7 @@ footer > span{min-width:0}
 
   <section class="card">
     <details id="doneBox">
-      <summary><h2 class="card-h"><span class="dot green"></span>양하완료 <span class="n" id="doneN"></span><span class="caret">펼치기</span></h2></summary>
+      <summary><h2 style="display:inline-flex;border:none">✅ 양하완료 <span class="n" id="doneN"></span></h2></summary>
       <div id="done"></div>
     </details>
   </section>
@@ -164,9 +160,8 @@ footer > span{min-width:0}
   <footer>
     <span>데이터는 이 브라우저에만 저장되며 외부로 보내지 않습니다. 표시된 시간은 조회 시점 기준 예정시간입니다.</span>
     <span>
-      <button class="btn sm" id="urlBtn">터미널 조회 주소 설정</button>
       <button class="btn sm" id="addBtn">+ 모선 추가</button>
-      <button class="btn sm" id="resetBtn">더미 데이터로 초기화</button>
+      <button class="btn sm" id="resetBtn">리셋</button>
     </span>
   </footer>
 </div>
@@ -176,86 +171,219 @@ footer > span{min-width:0}
     <h3 id="dlgTitle">새 시간 입력</h3>
     <div id="addFields">
       <div class="grid2">
-        <div class="field"><label for="fVessel">모선명</label><input id="fVessel" placeholder="예: HANBIT STAR"></div>
-        <div class="field"><label for="fVoyage">항차</label><input id="fVoyage" placeholder="예: 0412E"></div>
+        <div class="field"><label>모선명</label><input id="fVessel" placeholder="예: HANBIT STAR"></div>
+        <div class="field"><label>항차</label><input id="fVoyage" placeholder="예: 0412E"></div>
       </div>
       <div class="grid2">
-        <div class="field"><label for="fTerminal">터미널</label><select id="fTerminal"></select></div>
-        <div class="field"><label for="fFwd">포워딩</label><input id="fFwd" placeholder="예: 포워더 A"></div>
+        <div class="field"><label>터미널</label><select id="fTerminal"></select></div>
       </div>
     </div>
-    <div class="field"><label for="fEta">입항 예정 (ETA)</label><input type="datetime-local" id="fEta" required></div>
-    <div class="field"><label for="fEtd">출항 예정 (ETD)</label><input type="datetime-local" id="fEtd" required></div>
+    <div id="timeFields">
+    <div class="field"><label>입항 예정 (ETA)</label>
+      <div class="grid2"><input type="date" id="fEtaDate" required><select id="fEtaHour" required></select></div></div>
+    <div class="field"><label>출항 예정 (ETD)</label>
+      <div class="grid2"><input type="date" id="fEtdDate" required><select id="fEtdHour" required></select></div></div>
+    </div>
     <div class="note" id="dlgNote"></div>
     <div class="dlg-acts">
       <button class="btn" value="cancel" formnovalidate>취소</button>
-      <button class="btn primary" value="ok">저장</button>
+      <button class="btn primary" value="ok" id="dlgOk">저장</button>
     </div>
   </form>
 </dialog>
 
-<dialog id="ask">
+<dialog id="checkDlg">
   <form method="dialog">
-    <h3>확인</h3>
-    <p id="askMsg" style="margin:0"></p>
-    <div class="dlg-acts">
-      <button class="btn" value="no">취소</button>
-      <button class="btn primary" value="yes">확인</button>
-    </div>
+    <h3>🔍 시간 점검 결과</h3>
+    <div class="note" id="checkWhen"></div>
+    <div class="stats" id="checkSum" style="margin:10px 0"></div>
+    <div id="checkList" style="max-height:50vh;overflow:auto"></div>
+    <div class="note" style="margin-top:10px">자동 조회(작업 스케줄러, 1시간마다) 결과 기준입니다. 바뀐 시간은 터미널 화면에서 다시 확인한 뒤 안내하세요.</div>
+    <div class="dlg-acts"><button class="btn primary" value="ok">닫기</button></div>
   </form>
 </dialog>
 
-<dialog id="urlDlg">
-  <form method="dialog">
-    <h3>터미널 조회 주소 설정</h3>
-    <p class="note" style="margin:0 0 10px">각 터미널 사이트에서 선석배정현황 화면을 연 뒤, 주소창의 주소를 복사해 붙여넣으세요. 이 브라우저에만 저장됩니다.</p>
-    <div id="urlList" style="max-height:55vh;overflow-y:auto"></div>
-    <div class="dlg-acts">
-      <button class="btn" value="cancel" formnovalidate>취소</button>
-      <button class="btn primary" value="ok" formnovalidate>저장</button>
-    </div>
-  </form>
-</dialog>
+<div class="toast" id="toast"></div>
 
-<div class="toast" id="toast" role="status"></div>
-
+<script src="선석데이터.js" onerror="void 0"></script>
 <script>
-const KEY = 'vesselWatch.index.v2';
-const PORTS = [
-  {port:'북항', terminals:['신선대','허치슨','BIT']},
-  {port:'신항', terminals:['PNC','DGT','HPNT','HJNC']},
-];
-const TERMINALS = PORTS.flatMap(p => p.terminals);
-const portOf = t => (PORTS.find(p => p.terminals.includes(t)) || {}).port || '';
-const CHECK_HOURS = 3;
+const KEY = 'vesselWatch.v1';
+const TERMINALS = ['감만','신선대','허치슨'];
+const OLD_NAMES = {'북항A':'감만','북항B':'신선대','북항C':'허치슨'};
+const DEFAULT_AUTO_HOURS = 1;
+function autoHours(){ const h = Number(data.autoHours); return h > 0 ? h : DEFAULT_AUTO_HOURS; }
 
-// 더미 데이터 3척 (실제 모선·거래처 아님)
 function sample(){
-  const v = (id,vessel,voyage,terminal,fwd,baseEta,baseEtd,eta,etd) => ({
+  const v = (id,vessel,voyage,terminal,fwd,baseEta,baseEtd,eta,etd,extra={}) => ({
     id,vessel,voyage,terminal,fwd,baseEta,baseEtd,eta,etd,
     status:'tracking',nameCheck:false,
-    history:[{at:'2026-11-09T11:00',eta:baseEta,etd:baseEtd},{at:'2026-11-09T14:00',eta,etd}]
+    history: baseEta ? [{at:'2026-11-09T11:00',eta:baseEta,etd:baseEtd}] : [],
+    ...extra
   });
-  return {lastCheck:'2026-11-09T14:00', urls:{}, vessels:[
-    v('v1','HANBIT STAR','0412E','PNC','포워더 A','2026-11-10T06:00','2026-11-11T02:00','2026-11-10T18:00','2026-11-11T14:00'),
-    v('v2','BLUE HARBOR','2245W','HPNT','포워더 B','2026-11-11T10:00','2026-11-12T08:00','2026-11-11T04:00','2026-11-12T02:00'),
-    v('v3','SEA MAPLE','0107S','신선대','포워더 A','2026-11-10T13:00','2026-11-10T23:00','2026-11-10T13:00','2026-11-10T23:00'),
-  ]};
+  const list = [
+    v('v3','SEA MAPLE','0107S','감만','포워더 A','2026-11-10T13:00','2026-11-10T23:00','2026-11-10T13:00','2026-11-10T23:00'),
+    v('v5','OCEAN LARK','1120E','허치슨','포워더 B','2026-11-12T15:00','2026-11-13T05:00','2026-11-12T15:00','2026-11-13T05:00'),
+    v('v7','NORTH BEACON','0301S','신선대','포워더 A',null,null,'2026-11-13T09:00','2026-11-13T22:00'),
+  ];
+  // 14:00 회차 조회 기록
+  list.forEach(x => x.history.push({at:'2026-11-09T14:00',eta:x.eta,etd:x.etd}));
+  return {lastCheck:'2026-11-09T14:00', vessels:list};
 }
 
+// 사용자가 직접 추가한 모선만 남김: 예전에 사이트에서 통째로 가져온 모선(auto)과 가짜 데이터(v1~v7)는 지움
+const SAMPLE_IDS = ['v1','v2','v3','v4','v5','v6','v7'];
 let data = load();
 let filter = '전체';
-const openHist = new Set();
+let openHist = new Set();
 let draftId = null;
 
 function load(){
   try{
     const raw = localStorage.getItem(KEY);
-    if(raw){ const d = JSON.parse(raw); if(d && Array.isArray(d.vessels)){ d.urls = d.urls || {}; return d; } }
+    if(raw){ const d = JSON.parse(raw); if(d && Array.isArray(d.vessels)){ d.vessels.forEach(x => { if(OLD_NAMES[x.terminal]) x.terminal = OLD_NAMES[x.terminal]; }); d.vessels = d.vessels.filter(x => TERMINALS.includes(x.terminal) && !x.auto && !SAMPLE_IDS.includes(x.id)); return d; } }
   }catch(e){}
-  return sample();
+  return {lastCheck:null, vessels:[]};
 }
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(data)); }catch(e){} }
+// 자동 트래킹: 입력한 모선을 터미널 선석배정현황 조회 결과(선석데이터.js)에서 찾아 시간 갱신
+//  - 허치슨      : https://custom.hktl.com/jsp/T01/sunsuk.jsp
+//  - 신선대·감만 : https://info.bptc.co.kr/content/sw/frame/berth_status_text_frame_sw_kr.jsp?p_id=BETX_SH_KR&snb_num=2&snb_div=service (조회기간 일주일)
+//  두 사이트 조회는 선석조회.py(작업 스케줄러)가 하고, 이 화면은 그 결과 파일을 읽는다.
+const SITE_OF = {'허치슨':'HKTL', '신선대':'BPT', '감만':'BPT'};
+const normName = x => String(x || '').toUpperCase().replace(/^M\/?V\s+/, '').replace(/[^A-Z0-9]/g, '');
+function findRow(v, rows){
+  const same = rows.filter(r => r.terminal === v.terminal);
+  // 1) 이전에 찾은 같은 건  2) 선명 완전 일치  3) 선명 일부 일치(모선명 확인 필요)
+  let hit = same.filter(r => r.id === (v.matchId || v.id));
+  let loose = false;
+  if(!hit.length) hit = same.filter(r => normName(r.vessel) === normName(v.vessel));
+  if(!hit.length){
+    const n = normName(v.vessel);
+    if(n.length >= 4) hit = same.filter(r => { const m = normName(r.vessel); return m.includes(n) || n.includes(m); });
+    loose = hit.length > 0;
+  }
+  if(!hit.length) return null;
+  // 항차가 맞는 건 우선, 그다음 입항 시간이 가장 가까운 건
+  const voy = normName(v.voyage);
+  if(voy){ const byVoy = hit.filter(r => normName(r.voyage).includes(voy) || normName(r.vvd).includes(voy)); if(byVoy.length) hit = byVoy; }
+  const t = new Date(v.eta || Date.now()).getTime();
+  hit.sort((x, y) => Math.abs(new Date(x.eta) - t) - Math.abs(new Date(y.eta) - t));
+  return {row: hit[0], loose, many: hit.length > 1};
+}
+function syncAuto(){
+  const D = window.BERTH_DATA;
+  if(!D || !D.sources) return false;
+  data.synced = {};
+  Object.entries(D.sources).forEach(([k, S]) => { if(S && S.fetchedAt) data.synced[k] = {at:S.fetchedAt, count:(S.rows||[]).length}; });
+  let changed = false;
+  data.vessels.filter(v => v.status === 'tracking' && SITE_OF[v.terminal]).forEach(v => {
+    const S = D.sources[SITE_OF[v.terminal]];
+    if(!S || !Array.isArray(S.rows)) { v.lookup = 'nodata'; return; }
+    const f = findRow(v, S.rows);
+    if(!f){ v.lookup = 'none'; v.state = ''; return; }
+    const r = f.row;
+    v.lookup = 'ok'; v.matchId = r.id; v.state = r.state || '';
+    if(f.loose && !v.nameOk){ v.nameCheck = true; v.nameNote = `입력: ${v.vessel} / 터미널: ${r.vessel}`; }
+    if(v.eta !== r.eta || v.etd !== r.etd){
+      v.eta = r.eta; v.etd = r.etd;
+      (v.history = v.history || []).push({at:S.fetchedAt, eta:r.eta, etd:r.etd});
+      changed = true;
+    }
+  });
+  const last = Object.values(data.synced).map(x => x.at).sort().pop();
+  if(last && (!data.lastCheck || last > data.lastCheck)){ data.lastCheck = last; changed = true; }
+  save();
+  return changed;
+}
+// 설정한 주기마다 조회 결과 파일을 다시 읽음
+let autoTimer = null;
+function startAuto(){
+  clearInterval(autoTimer);
+  autoTimer = setInterval(() => {
+    const el = document.createElement('script');
+    el.src = '선석데이터.js?t=' + Date.now();
+    el.onload = () => { if(syncAuto()){ render(); toast('자동 트래킹 결과를 반영했습니다.'); } el.remove(); };
+    el.onerror = () => el.remove();
+    document.head.appendChild(el);
+  }, autoHours() * 36e5);
+}
+
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(data)); }catch(e){} exportWatch(); }
+
+// ── 변경 알림용 추적 목록 내보내기 ──
+// 확인판에서 추가한 모선과 안내 기준시간을 프로젝트 폴더의 추적모선.json에 저장한다.
+// 선석조회.py(작업 스케줄러)가 이 파일을 읽어, 기준시간과 달라진 모선이 생기면 Windows 알림(메일)을 보낸다.
+const NOTIFY_DB = 'vesselWatchNotify', NOTIFY_STORE = 'h';
+let watchHandle = null, watchState = 'none', exportTimer = null;
+function idb(){
+  return new Promise((ok, no) => {
+    const r = indexedDB.open(NOTIFY_DB, 1);
+    r.onupgradeneeded = () => r.result.createObjectStore(NOTIFY_STORE);
+    r.onsuccess = () => ok(r.result); r.onerror = () => no(r.error);
+  });
+}
+async function idbGet(){ try{ const db = await idb(); return await new Promise(ok => { const q = db.transaction(NOTIFY_STORE).objectStore(NOTIFY_STORE).get('watch'); q.onsuccess = () => ok(q.result || null); q.onerror = () => ok(null); }); }catch(e){ return null; } }
+async function idbSet(v){ try{ const db = await idb(); db.transaction(NOTIFY_STORE, 'readwrite').objectStore(NOTIFY_STORE).put(v, 'watch'); }catch(e){} }
+function watchJson(){
+  return JSON.stringify({
+    savedAt: nowLocal(),
+    note: '모선_일정_변경_확인판이 자동으로 저장하는 파일입니다. 직접 고치지 마세요.',
+    vessels: data.vessels.filter(v => v.status === 'tracking').map(v => ({
+      id:v.id, terminal:v.terminal, vessel:v.vessel, voyage:v.voyage || '', matchId:v.matchId || '',
+      baseEta:v.baseEta || null, baseEtd:v.baseEtd || null, eta:v.eta || null, etd:v.etd || null
+    }))
+  }, null, 1);
+}
+function setNotifyInfo(){
+  const el = $('notifyInfo'), b = $('notifyBtn'); if(!el) return;
+  if(watchState === 'ok'){ el.textContent = '알림 연결됨'; b.textContent = '🔔 알림 연결됨'; }
+  else if(watchState === 'need'){ el.textContent = '눌러서 다시 연결하세요 (브라우저를 다시 열면 한 번 필요)'; b.textContent = '🔔 알림 다시 연결'; }
+  else { el.textContent = '알림 꺼짐'; b.textContent = '🔔 알림 연결'; }
+}
+async function writeWatch(){
+  if(!watchHandle) return;
+  try{
+    const w = await watchHandle.createWritable();
+    await w.write(watchJson()); await w.close();
+    watchState = 'ok';
+  }catch(e){ watchState = 'need'; }
+  setNotifyInfo();
+}
+function exportWatch(){
+  if(!watchHandle) return;
+  clearTimeout(exportTimer);
+  exportTimer = setTimeout(async () => {
+    try{
+      if(await watchHandle.queryPermission({mode:'readwrite'}) === 'granted') await writeWatch();
+      else { watchState = 'need'; setNotifyInfo(); }
+    }catch(e){ watchState = 'need'; setNotifyInfo(); }
+  }, 300);
+}
+async function initWatch(){
+  if(!window.showSaveFilePicker){ setNotifyInfo(); return; }
+  watchHandle = await idbGet();
+  if(!watchHandle){ setNotifyInfo(); return; }
+  try{ watchState = (await watchHandle.queryPermission({mode:'readwrite'})) === 'granted' ? 'ok' : 'need'; }catch(e){ watchState = 'need'; }
+  setNotifyInfo();
+  if(watchState === 'ok') writeWatch();
+}
+async function connectWatch(){
+  if(!window.showSaveFilePicker){
+    // 파일 저장 기능이 없는 브라우저: 다운로드로 대신 (프로젝트 폴더로 옮겨야 함)
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([watchJson()], {type:'application/json'}));
+    a.download = '추적모선.json'; a.click();
+    alert('이 브라우저는 파일을 바로 저장할 수 없어 다운로드했습니다.\n받은 추적모선.json을 확인판과 같은 폴더에 넣어 주세요.\n(Edge·Chrome에서는 자동으로 저장됩니다)');
+    return;
+  }
+  try{
+    if(watchHandle && await watchHandle.requestPermission({mode:'readwrite'}) === 'granted'){ await writeWatch(); toast('알림이 다시 연결되었습니다.'); return; }
+    alert('다음 창에서 확인판과 같은 폴더(부산_바이브코딩)에 "추적모선.json"으로 저장해 주세요.\n한 번 연결하면 모선을 추가·안내완료할 때마다 자동으로 저장됩니다.');
+    watchHandle = await window.showSaveFilePicker({suggestedName:'추적모선.json', types:[{description:'추적 모선 목록', accept:{'application/json':['.json']}}]});
+    await idbSet(watchHandle);
+    await writeWatch();
+    toast('알림이 연결되었습니다.');
+  }catch(e){ if(e && e.name !== 'AbortError') toast('알림 연결 실패: ' + e.message); }
+}
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -269,7 +397,7 @@ function nowLocal(){
   const d = new Date();
   return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
-const hours = (a,b) => (new Date(b) - new Date(a)) / 36e5;
+function hours(a,b){ return (new Date(b) - new Date(a)) / 36e5; }
 function hText(h){ const a = Math.abs(h); return (Number.isInteger(a) ? a : a.toFixed(1)) + '시간'; }
 
 function diffBadge(base, cur, label){
@@ -279,14 +407,24 @@ function diffBadge(base, cur, label){
     ? `<span class="badge b-late">${label} ${hText(h)} 지연</span>`
     : `<span class="badge b-early">${label} ${hText(h)} 당겨짐</span>`;
 }
-const isNew = v => !v.baseEta;
-const isChanged = v => !isNew(v) && (v.eta !== v.baseEta || v.etd !== v.baseEtd);
-const needsAttn = v => v.status === 'tracking' && (isNew(v) || isChanged(v) || v.nameCheck);
+function isNew(v){ return !v.baseEta; }
+function isChanged(v){ return !isNew(v) && (v.eta !== v.baseEta || v.etd !== v.baseEtd); }
+function needsAttn(v){ return v.status === 'tracking' && (isNew(v) || isChanged(v) || v.nameCheck); }
 
 function render(){
+  // 자동 트래킹 상태
+  const sy = data.synced || {};
+  const lastAuto = Object.values(sy).map(x => x.at).sort().pop();
+  const mine = data.vessels.filter(v => v.status === 'tracking' && SITE_OF[v.terminal]);
+  const found = mine.filter(v => v.lookup === 'ok').length;
+  $('autoInfo').textContent = lastAuto
+    ? `마지막 사이트 조회: ${fmt(lastAuto)} · 입력한 모선 ${mine.length}척 중 ${found}척 찾음`
+    : '사이트 조회 결과 없음 — 선석조회.bat을 실행하세요';
+
+  // 상단 확인 시각
   $('lastCheck').textContent = fmt(data.lastCheck);
   if(data.lastCheck){
-    const due = new Date(new Date(data.lastCheck).getTime() + CHECK_HOURS*36e5);
+    const due = new Date(new Date(data.lastCheck).getTime() + autoHours()*36e5);
     const over = new Date() > due;
     $('nextDue').textContent = `다음 확인: ${fmt(due)}${over ? ' · 확인 시간이 지났습니다' : ''}`;
     $('nextDue').className = 'due' + (over ? ' over' : '');
@@ -298,10 +436,11 @@ function render(){
   $('cAttn').textContent = tracking.filter(v => isNew(v) || v.nameCheck).length;
   $('cDone').textContent = data.vessels.filter(v => v.status === 'done').length;
 
-  const chip = (t, label, n) => `<button class="chip ${filter===t?'on':''}" data-filter="${esc(t)}">${esc(label)} ${n}</button>`;
-  $('filters').innerHTML = chip('전체', '전체', tracking.length) + PORTS.map(p =>
-    `<span class="grp">${p.port}</span>` + p.terminals.map(t => chip(t, t, tracking.filter(v => v.terminal === t).length)).join('')
-  ).join('');
+  // 터미널 필터
+  $('filters').innerHTML = ['전체', ...TERMINALS].map(t => {
+    const n = t === '전체' ? tracking.length : tracking.filter(v => v.terminal === t).length;
+    return `<button class="chip ${filter===t?'on':''}" data-filter="${t}">${t} ${n}</button>`;
+  }).join('');
 
   const pass = v => filter === '전체' || v.terminal === filter;
   const byEta = (a,b) => (a.eta||'').localeCompare(b.eta||'');
@@ -320,11 +459,13 @@ function table(list, emptyMsg){
   const rows = list.map(v => {
     const chg = isChanged(v);
     const badges = [];
-    if(v.status === 'done') badges.push('<span class="badge b-done">양하완료</span>');
+    if(v.status === 'done') badges.push(`<span class="badge b-done">${v.auto && v.state ? esc(v.state) : '양하완료'}</span>`);
     else {
       if(isNew(v)) badges.push('<span class="badge b-new">신규</span>');
       if(chg){ badges.push(diffBadge(v.baseEta, v.eta, '입항')); badges.push(diffBadge(v.baseEtd, v.etd, '출항')); }
-      if(v.nameCheck) badges.push('<span class="badge b-name">모선명 확인 필요</span>');
+      if(v.lookup === 'none') badges.push(`<span class="badge b-name" title="${esc(v.terminal)} 선석배정현황에서 같은 선명을 찾지 못했습니다. 선명·터미널을 확인하세요.">사이트에서 못 찾음</span>`);
+      if(v.lookup === 'ok' && v.state) badges.push(`<span class="badge b-same">${esc(v.state)}</span>`);
+      if(v.nameCheck) badges.push(`<span class="badge b-name" title="${esc(v.nameNote||'')}">모선명 확인 필요</span>`);
       if(!badges.length) badges.push('<span class="badge b-same">변동 없음</span>');
     }
     const time = (base, cur) => {
@@ -335,17 +476,17 @@ function table(list, emptyMsg){
     if(v.status === 'done'){
       acts = `<button class="btn sm" data-act="reopen" data-id="${v.id}">추적 재개</button>`;
     } else {
-      acts = lookupBtn(v) + `<button class="btn sm" data-act="time" data-id="${v.id}">새 시간 입력</button>`;
+      acts = `<button class="btn sm" data-act="time" data-id="${v.id}">새 시간 입력</button>`;
       if(chg) acts += `<button class="btn sm" data-act="draft" data-id="${v.id}">초안</button>`;
       if(chg) acts += `<button class="btn sm" data-act="ack" data-id="${v.id}">안내 완료</button>`;
-      if(isNew(v)) acts += `<button class="btn sm" data-act="ack" data-id="${v.id}">기준으로 등록</button>`;
+      if(isNew(v) && v.eta) acts += `<button class="btn sm" data-act="ack" data-id="${v.id}">기준으로 등록</button>`;
       if(v.nameCheck) acts += `<button class="btn sm" data-act="name" data-id="${v.id}">모선명 확인함</button>`;
       acts += `<button class="btn sm" data-act="done" data-id="${v.id}">양하완료</button>`;
     }
     let html = `<tr>
-      <td><button class="vname" data-act="hist" data-id="${v.id}" title="눌러서 조회 이력 보기">${esc(v.vessel)}<span class="voy">${esc(v.voyage)}</span></button></td>
-      <td>${esc(v.terminal)}<span class="port">${esc(portOf(v.terminal))}</span></td>
-      <td>${esc(v.fwd)}</td>
+      <td><span class="vname" data-act="hist" data-id="${v.id}" title="눌러서 변경 이력 보기">${esc(v.vessel)}<span class="voy">${esc(v.voyage)}</span></span>
+        ${v.nameNote && v.nameCheck ? `<div class="note">${esc(v.nameNote)}</div>` : ''}</td>
+      <td>${esc(v.terminal)}</td>
       ${time(v.baseEta, v.eta)}
       ${time(v.baseEtd, v.etd)}
       <td>${badges.join('')}</td>
@@ -354,27 +495,17 @@ function table(list, emptyMsg){
     if(openHist.has(v.id)){
       const items = (v.history||[]).slice().reverse().map(h =>
         `<li>${fmt(h.at)} 조회 → 입항 ${fmt(h.eta)} / 출항 ${fmt(h.etd)}</li>`).join('') || '<li>기록 없음</li>';
-      html += `<tr class="hist"><td colspan="7"><b>조회 이력</b> (최근 순)<ul>${items}</ul></td></tr>`;
+      html += `<tr class="hist"><td colspan="6"><b>조회 이력</b> (최근 순)<ul>${items}</ul></td></tr>`;
     }
     return html;
   }).join('');
   return `<div class="scroll"><table>
-    <thead><tr><th>모선 / 항차</th><th>터미널</th><th>포워딩</th><th>입항 (안내기준 → 현재)</th><th>출항 (안내기준 → 현재)</th><th>상태</th><th>작업</th></tr></thead>
+    <thead><tr><th>모선 / 항차</th><th>터미널</th><th>입항 (안내기준 → 현재)</th><th>출항 (안내기준 → 현재)</th><th>상태</th><th>작업</th></tr></thead>
     <tbody>${rows}</tbody></table></div>`;
 }
 
-// 터미널 선석배정현황 열기 버튼 (주소는 사용자가 직접 등록)
-function lookupBtn(v){
-  const url = (data.urls || {})[v.terminal];
-  return url
-    ? `<a class="btn sm lookup" href="${esc(url)}" target="_blank" rel="noopener" data-act="lookup" data-id="${v.id}" title="모선명을 복사하고 ${esc(v.terminal)} 선석배정현황을 새 탭에서 엽니다">선석배정현황 열기</a>`
-    : `<button class="btn sm" data-act="seturl" data-id="${v.id}" title="${esc(v.terminal)} 조회 주소가 등록되지 않았습니다">조회 주소 등록</button>`;
-}
-function copyText(t){
-  try{ navigator.clipboard.writeText(t).catch(() => {}); }catch(e){}
-}
-
 function makeDraft(v){
+  const lines = [];
   const desc = (label, base, cur) => {
     if(base === cur) return null;
     const h = hours(base, cur);
@@ -383,97 +514,84 @@ function makeDraft(v){
   const e1 = desc('입항', v.baseEta, v.eta);
   const e2 = desc('출항', v.baseEtd, v.etd);
   const last = (v.history && v.history.length) ? v.history[v.history.length-1].at : data.lastCheck;
-  return [
-    `제목: [일정 변경 안내] ${v.vessel} ${v.voyage} 입항·출항 예정시간 변경`,
-    '',
-    '안녕하십니까, [회사명] [부서명] [성함]입니다.',
-    '',
-    `${v.vessel} ${v.voyage} 모선(${v.terminal} 터미널)의 일정이 아래와 같이 변경되어 안내드립니다.`,
-    '',
-    ...[e1, e2].filter(Boolean),
-    '',
-    `※ ${fmt(last)} 터미널 선석배정현황 조회 기준이며, 이후 변동될 수 있습니다.`,
-    '',
-    '이에 따라 반출·운송 일정 조정이 필요할 수 있어 미리 알려드립니다.',
-    '추가 변동이 확인되면 바로 다시 안내드리겠습니다.',
-    '',
-    '감사합니다.',
-    '[성함] 드림'
-  ].join('\n');
+  lines.push(`제목: [일정 변경 안내] ${v.vessel} ${v.voyage} 입항·출항 예정시간 변경`);
+  lines.push('');
+  lines.push('안녕하십니까, [회사명] [부서명] [성함]입니다.');
+  lines.push('');
+  lines.push(`${v.vessel} ${v.voyage} 모선(${v.terminal} 터미널)의 일정이 아래와 같이 변경되어 안내드립니다.`);
+  lines.push('');
+  if(e1) lines.push(e1);
+  if(e2) lines.push(e2);
+  lines.push('');
+  lines.push(`※ ${fmt(last)} 터미널 선석배정현황 조회 기준이며, 이후 변동될 수 있습니다.`);
+  lines.push('');
+  lines.push('이에 따라 반출·운송 일정 조정이 필요할 수 있어 미리 알려드립니다.');
+  lines.push('추가 변동이 확인되면 바로 다시 안내드리겠습니다.');
+  lines.push('');
+  lines.push('감사합니다.');
+  lines.push('[성함] 드림');
+  return lines.join('\n');
 }
 
-// 화면 안 확인창 (브라우저 confirm 대신)
-let askYes = null;
-function ask(msg, onYes){ $('askMsg').textContent = msg; askYes = onYes; $('ask').showModal(); }
-$('ask').addEventListener('close', () => { if($('ask').returnValue === 'yes' && askYes) askYes(); askYes = null; });
-
-// 입력창
+// 대화상자
 let dlgMode = null, dlgId = null;
-$('fTerminal').innerHTML = PORTS.map(p =>
-  `<optgroup label="${p.port}">${p.terminals.map(t => `<option>${t}</option>`).join('')}</optgroup>`).join('');
+$('fTerminal').innerHTML = TERMINALS.map(t => `<option>${t}</option>`).join('');
 
-// 터미널 조회 주소 설정
-$('urlList').innerHTML = PORTS.map(p => `<div class="grp">${p.port}</div>` + p.terminals.map((t, i) =>
-  `<div class="field"><label for="u_${p.port}_${i}">${t} 선석배정현황 주소</label><input type="url" id="u_${p.port}_${i}" data-term="${t}" placeholder="https://"></div>`
-).join('')).join('');
-function openUrls(focusTerm){
-  document.querySelectorAll('#urlList input').forEach(inp => { inp.value = (data.urls || {})[inp.dataset.term] || ''; });
-  $('urlDlg').showModal();
-  const f = focusTerm && document.querySelector(`#urlList input[data-term="${focusTerm}"]`);
-  if(f) f.focus();
+// 입항·출항 예정시간은 날짜 + 시(정각)만 입력, 분은 00으로 저장
+const HOUR_OPTS = '<option value="">시 선택</option>' + Array.from({length:24}, (_, h) => `<option value="${pad(h)}">${h}시</option>`).join('');
+['fEtaHour','fEtdHour'].forEach(i => $(i).innerHTML = HOUR_OPTS);
+function setDT(prefix, val){
+  $(prefix + 'Date').value = val ? val.slice(0, 10) : '';
+  $(prefix + 'Hour').value = val ? val.slice(11, 13) : '';
 }
-$('urlDlg').addEventListener('close', () => {
-  if($('urlDlg').returnValue !== 'ok') return;
-  const urls = {}; let bad = 0;
-  document.querySelectorAll('#urlList input').forEach(inp => {
-    const u = inp.value.trim(); if(!u) return;
-    if(/^https?:\/\//i.test(u)) urls[inp.dataset.term] = u; else bad++;
-  });
-  data.urls = urls; save(); render();
-  toast(bad ? `http:// 또는 https://로 시작하지 않는 주소 ${bad}개는 저장하지 않았습니다.` : '조회 주소를 저장했습니다.');
-});
+function getDT(prefix){ return `${$(prefix + 'Date').value}T${$(prefix + 'Hour').value}:00`; }
 
 function openTime(v){
   dlgMode = 'time'; dlgId = v.id;
   $('dlgTitle').textContent = `새 시간 입력 · ${v.vessel} ${v.voyage}`;
-  $('addFields').hidden = true;
+  $('addFields').style.display = 'none';
   ['fVessel','fVoyage'].forEach(i => $(i).required = false);
-  $('fEta').value = v.eta || ''; $('fEtd').value = v.etd || '';
-  $('dlgNote').textContent = `${portOf(v.terminal)} ${v.terminal} 터미널 선석배정현황에서 확인한 시간을 넣으세요. 바뀌지 않았으면 그대로 저장해도 됩니다.`;
+  $('timeFields').style.display = ''; ['fEtaDate','fEtaHour','fEtdDate','fEtdHour'].forEach(i => $(i).required = true);
+  setDT('fEta', v.eta); setDT('fEtd', v.etd);
+  $('dlgNote').textContent = `${v.terminal} 터미널 선석배정현황에서 확인한 시간을 넣으세요. 바뀌지 않았으면 그대로 저장해도 됩니다.`;
   $('dlg').showModal();
 }
 function openAdd(){
   dlgMode = 'add'; dlgId = null;
   $('dlgTitle').textContent = '모선 추가';
-  $('addFields').hidden = false;
+  $('addFields').style.display = '';
   ['fVessel','fVoyage'].forEach(i => $(i).required = true);
-  ['fVessel','fVoyage','fFwd','fEta','fEtd'].forEach(i => $(i).value = '');
+  ['fVessel','fVoyage'].forEach(i => $(i).value = '');
+  $('timeFields').style.display = 'none'; ['fEtaDate','fEtaHour','fEtdDate','fEtdHour'].forEach(i => $(i).required = false);
   $('fTerminal').value = filter !== '전체' ? filter : TERMINALS[0];
-  $('dlgNote').textContent = '추가한 모선은 "신규"로 표시됩니다. 확인 후 [기준으로 등록]을 누르세요.';
+  $('dlgNote').textContent = '입항·출항 예정시간은 입력하지 않아도 됩니다. 터미널 선석배정현황 조회 결과에서 선명으로 찾아 자동으로 채웁니다. 시간이 채워지면 확인 후 [기준으로 등록]을 누르세요.';
   $('dlg').showModal();
 }
 $('dlg').addEventListener('close', () => {
   if($('dlg').returnValue !== 'ok') return;
-  const eta = $('fEta').value, etd = $('fEtd').value, at = nowLocal();
+  const at = nowLocal();
+  const eta = dlgMode === 'time' ? getDT('fEta') : null, etd = dlgMode === 'time' ? getDT('fEtd') : null;
   if(dlgMode === 'time'){
     const v = data.vessels.find(x => x.id === dlgId); if(!v) return;
     v.eta = eta; v.etd = etd;
-    (v.history = v.history || []).push({at, eta, etd});
+    v.history = v.history || [];
+    v.history.push({at, eta, etd});
     data.lastCheck = at;
     toast(isChanged(v) ? '변경이 감지되어 위로 올렸습니다.' : '변동 없음으로 저장했습니다.');
   } else if(dlgMode === 'add'){
     data.vessels.push({
       id:'v'+Date.now(), vessel:$('fVessel').value.trim().toUpperCase(), voyage:$('fVoyage').value.trim().toUpperCase(),
-      terminal:$('fTerminal').value, fwd:$('fFwd').value.trim() || '포워더 미지정',
-      baseEta:null, baseEtd:null, eta, etd, status:'tracking', nameCheck:false, history:[{at, eta, etd}]
+      terminal:$('fTerminal').value,
+      baseEta:null, baseEtd:null, eta:null, etd:null, status:'tracking', nameCheck:false, history:[]
     });
-    toast('모선을 추가했습니다.');
+    syncAuto();
+    const added = data.vessels[data.vessels.length - 1];
+    toast(added.lookup === 'ok' ? '모선을 추가했습니다. 사이트 조회 결과에서 시간을 찾아 채웠습니다.' : '모선을 추가했습니다. 사이트 조회 결과에서 아직 찾지 못했습니다.');
   }
   save(); render();
 });
 
-function clearDraft(){ $('draft').value = ''; $('draftFor').textContent = '변경된 모선의 [초안] 버튼을 누르세요'; draftId = null; }
-
+// 클릭 처리
 document.addEventListener('click', e => {
   const f = e.target.closest('[data-filter]');
   if(f){ filter = f.dataset.filter; render(); return; }
@@ -482,45 +600,97 @@ document.addEventListener('click', e => {
   switch(a.dataset.act){
     case 'hist': openHist.has(v.id) ? openHist.delete(v.id) : openHist.add(v.id); render(); break;
     case 'time': openTime(v); break;
-    case 'lookup': copyText(v.vessel); toast(`모선명 "${v.vessel}"을(를) 복사했습니다. 열린 탭에서 붙여넣어 검색하세요.`); break;
-    case 'seturl': openUrls(v.terminal); break;
     case 'draft':
       draftId = v.id; $('draft').value = makeDraft(v);
-      $('draftFor').textContent = `${v.vessel} ${v.voyage} · ${v.fwd}`;
+      $('draftFor').textContent = `${v.vessel} ${v.voyage}`;
       $('draft').scrollIntoView({behavior:'smooth', block:'center'}); break;
     case 'ack':
       v.baseEta = v.eta; v.baseEtd = v.etd;
-      if(draftId === v.id) clearDraft();
+      if(draftId === v.id){ $('draft').value = ''; $('draftFor').textContent = '변경된 모선의 [초안] 버튼을 누르세요'; draftId = null; }
       save(); render(); toast('현재 시간을 안내 기준으로 등록했습니다.'); break;
-    case 'name': v.nameCheck = false; save(); render(); break;
+    case 'name': v.nameCheck = false; v.nameOk = true; save(); render(); break;
     case 'done':
-      ask(`${v.vessel} ${v.voyage}을(를) 양하완료로 옮길까요? 추적 목록에서 빠집니다.`, () => {
-        v.status = 'done'; if(draftId === v.id) clearDraft(); save(); render(); toast('양하완료로 옮겼습니다.');
-      }); break;
-    case 'reopen': v.status = 'tracking'; save(); render(); toast('다시 추적합니다.'); break;
+      if(confirm(`${v.vessel} ${v.voyage}을(를) 양하완료로 옮길까요? 추적 목록에서 빠집니다.`)){
+        v.status = 'done'; save(); render();
+      } break;
+    case 'reopen': v.status = 'tracking'; save(); render(); break;
   }
 });
 
-$('doneBox').addEventListener('toggle', () => { document.querySelector('.caret').textContent = $('doneBox').open ? '접기' : '펼치기'; });
 $('roundDone').onclick = () => { data.lastCheck = nowLocal(); save(); render(); toast('이번 회차 조회 완료로 기록했습니다.'); };
-$('addBtn').onclick = openAdd;
-$('urlBtn').onclick = () => openUrls();
-$('resetBtn').onclick = () => ask('지금 입력한 내용을 지우고 더미 데이터 3척으로 되돌릴까요?', () => {
-  const keepUrls = data.urls || {};
-  data = sample(); data.urls = keepUrls; openHist.clear(); clearDraft(); save(); render(); toast('더미 데이터로 되돌렸습니다.');
+$('autoHours').value = autoHours();
+$('autoHours').addEventListener('change', e => {
+  const h = Number(e.target.value);
+  if(!(h >= 0.5 && h <= 24)){ e.target.value = autoHours(); toast('주기는 0.5~24시간 사이로 넣어주세요.'); return; }
+  data.autoHours = h; save(); startAuto(); render(); toast(`자동 트래킹 주기를 ${h}시간으로 바꿨습니다.`);
 });
-$('copy').onclick = () => {
+startAuto();
+$('addBtn').onclick = openAdd;
+$('resetBtn').onclick = () => {
+  if(confirm('저장된 모선과 조회 이력을 모두 지울까요? 되돌릴 수 없습니다.')){
+    data = {lastCheck:null, vessels:[], autoHours:data.autoHours}; openHist.clear(); draftId = null;
+    $('draft').value = ''; $('draftFor').textContent = '변경된 모선의 [초안] 버튼을 누르세요';
+    save(); render(); toast('데이터를 모두 지웠습니다.');
+  }
+};
+$('copy').onclick = async () => {
   const t = $('draft').value; if(!t){ toast('먼저 [초안]을 눌러주세요.'); return; }
-  const fallback = () => { $('draft').select(); try{ document.execCommand('copy'); toast('초안을 복사했습니다.'); }catch(e){ toast('Ctrl+C로 복사하세요.'); } };
-  try{
-    navigator.clipboard.writeText(t).then(() => toast('초안을 복사했습니다.'), fallback);
-  }catch(e){ fallback(); }
+  try{ await navigator.clipboard.writeText(t); }
+  catch(e){ $('draft').select(); document.execCommand('copy'); }
+  toast('초안을 복사했습니다.');
 };
 
 let tt;
 function toast(msg){ const el = $('toast'); el.textContent = msg; el.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => el.classList.remove('show'), 1800); }
 
+$('notifyBtn').onclick = connectWatch;
+
+// ── 시간 점검: 최신 조회 결과 파일을 다시 읽어 추적 중인 모선을 하나씩 비교 ──
+function runCheck(){
+  syncAuto(); render();
+  const list = data.vessels.filter(v => v.status === 'tracking');
+  const groups = {chg:[], none:[], fresh:[], ok:[], manual:[]};
+  list.forEach(v => {
+    if(!SITE_OF[v.terminal]) groups.manual.push(v);
+    else if(v.lookup !== 'ok') groups.none.push(v);
+    else if(isNew(v)) groups.fresh.push(v);
+    else if(isChanged(v)) groups.chg.push(v);
+    else groups.ok.push(v);
+  });
+  const last = Object.values(data.synced || {}).map(x => x.at).sort().pop();
+  $('checkWhen').textContent = last ? `${fmt(last)} 사이트 조회 기준 · 점검 시각 ${fmt(nowLocal())}` : '자동 조회 결과가 없습니다. 선석조회.bat을 실행하세요.';
+  $('checkSum').innerHTML = [
+    ['추적', list.length, ''], ['변경', groups.chg.length, 'red'], ['못 찾음', groups.none.length, groups.none.length ? 'red' : ''],
+    ['기준 등록 필요', groups.fresh.length, ''], ['이상 없음', groups.ok.length, '']
+  ].map(([l, n, c]) => `<div class="stat ${c}">${l}<b>${n}</b></div>`).join('');
+  const line = (v, badge) => {
+    const t = (b, c, label) => b && c && b !== c ? `${label} ${fmt(b)} → <b style="color:var(--red)">${fmt(c)}</b> (${hText(hours(b, c))} ${hours(b, c) > 0 ? '지연' : '당겨짐'})` : `${label} ${fmt(c)}`;
+    return `<tr><td><b>${esc(v.vessel)}</b> <span class="voy">${esc(v.voyage||'')}</span></td><td>${esc(v.terminal)}</td>
+      <td>${badge}</td><td>${t(v.baseEta, v.eta, '접안')}<br>${t(v.baseEtd, v.etd, '출항')}</td></tr>`;
+  };
+  const rows = [
+    ...groups.chg.map(v => line(v, '<span class="badge b-late">변경</span>')),
+    ...groups.none.map(v => line(v, '<span class="badge b-name">사이트에서 못 찾음</span>')),
+    ...groups.fresh.map(v => line(v, '<span class="badge b-new">기준 등록 필요</span>')),
+    ...groups.manual.map(v => line(v, '<span class="badge b-same">자동 조회 대상 아님</span>')),
+    ...groups.ok.map(v => line(v, '<span class="badge b-done">이상 없음</span>')),
+  ];
+  $('checkList').innerHTML = rows.length
+    ? `<table style="min-width:0"><tbody>${rows.join('')}</tbody></table>`
+    : '<div class="empty">추적 중인 모선이 없습니다. [+ 모선 추가]로 모선을 넣으세요.</div>';
+  $('checkDlg').showModal();
+}
+$('checkBtn').onclick = () => {
+  const btn = $('checkBtn'); btn.disabled = true;
+  const el = document.createElement('script');
+  el.src = '선석데이터.js?t=' + Date.now();
+  el.onload = () => { el.remove(); btn.disabled = false; runCheck(); };
+  el.onerror = () => { el.remove(); btn.disabled = false; runCheck(); };
+  document.head.appendChild(el);
+};
+syncAuto();
 render();
+initWatch();
 </script>
 </body>
 </html>
