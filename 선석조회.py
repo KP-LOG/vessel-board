@@ -165,6 +165,46 @@ def main():
             notify_changes(data)
         except Exception as e:
             log(f'[알림 실패] {e}')
+        try:
+            publish_web()
+        except Exception as e:
+            log(f'[웹 갱신 실패] {e}')
+
+
+# ───────── 웹(Vercel) 갱신 ─────────
+# 조회 결과 선석데이터.js를 vessel-board 저장소에 복사 → GitHub에 올리고 → Vercel에 배포한다.
+# 알림_설정.json 의 "web_publish": false 로 끌 수 있다.
+WEB_REPO = os.path.join(HERE, 'vessel-board')
+VERCEL = os.path.join(os.environ.get('APPDATA', ''), 'npm', 'vercel.cmd')
+
+
+def run(cmd, timeout=240):
+    import subprocess
+    r = subprocess.run(cmd, cwd=WEB_REPO, capture_output=True, timeout=timeout,
+                       creationflags=0x08000000)  # CREATE_NO_WINDOW
+    out = (r.stdout or b'').decode('utf-8', 'replace') + (r.stderr or b'').decode('utf-8', 'replace')
+    if r.returncode != 0:
+        raise RuntimeError(f"{' '.join(cmd[:3])} 실패: {out.strip()[-300:]}")
+    return out
+
+
+def publish_web():
+    settings = read_json(SETTINGS, {})
+    if not settings.get('web_publish', False) or not os.path.isdir(os.path.join(WEB_REPO, '.git')):
+        return
+    import shutil
+    shutil.copyfile(OUT, os.path.join(WEB_REPO, '선석데이터.js'))
+    run(['git', 'add', '선석데이터.js'])
+    if not run(['git', 'status', '--porcelain', '선석데이터.js']).strip():
+        return  # 바뀐 내용 없음
+    run(['git', 'commit', '-q', '-m', f'선석데이터 자동 갱신 {now()}'])
+    try:
+        run(['git', 'push', '-q', 'origin', 'main'])
+    except RuntimeError:
+        run(['git', 'pull', '-q', '--rebase', 'origin', 'main'])
+        run(['git', 'push', '-q', 'origin', 'main'])
+    run([VERCEL, 'deploy', '--prod', '--yes'], timeout=300)
+    log('[웹 갱신] GitHub 업로드 + Vercel 배포 완료 (https://vessel-board.vercel.app)')
 
 
 # ───────── 변경 알림 ─────────
