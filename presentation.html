@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>모선 일정 변경 확인판 발표</title>
+<style>
+:root{
+  --bg:#0f1420; --stage:#ffffff; --ink:#1d2330; --muted:#667085; --line:#e3e6ec; --soft:#f5f6f8;
+  --accent:#1f5fbf; --accent-soft:#e7f1fb; --red:#c4321f; --red-soft:#fdecea;
+  --amber:#a15c00; --amber-soft:#fff3dc; --green:#1f7a45; --green-soft:#e6f4ec;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#07090d; --stage:#161a21; --ink:#e7eaf0; --muted:#9aa3b2; --line:#2e343e; --soft:#1f242c;
+    --accent:#5b9cff; --accent-soft:#16283b; --red:#ff7b6b; --red-soft:#3a1f1c;
+    --amber:#ffbf5c; --amber-soft:#3a2c14; --green:#5fd394; --green-soft:#163024;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#07090d; --stage:#161a21; --ink:#e7eaf0; --muted:#9aa3b2; --line:#2e343e; --soft:#1f242c;
+  --accent:#5b9cff; --accent-soft:#16283b; --red:#ff7b6b; --red-soft:#3a1f1c;
+  --amber:#ffbf5c; --amber-soft:#3a2c14; --green:#5fd394; --green-soft:#163024;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:"맑은 고딕","Malgun Gothic",sans-serif;overflow:hidden}
+*{font-family:"맑은 고딕","Malgun Gothic",sans-serif}
+/* 1280x720 무대를 화면에 맞춰 확대·축소 */
+#viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#deck{width:1280px;height:720px;position:relative;transform-origin:center center;flex:none}
+.slide{position:absolute;inset:0;background:var(--stage);padding:64px 80px 72px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .35s ease}
+.slide.on{opacity:1;visibility:visible}
+.kicker{font-size:16px;font-weight:700;color:var(--accent);letter-spacing:.04em;margin-bottom:10px}
+h1{font-size:56px;line-height:1.2;margin:0 0 20px;letter-spacing:-.02em}
+h2{font-size:40px;line-height:1.25;margin:0 0 28px;letter-spacing:-.015em}
+p,li{font-size:22px;line-height:1.6}
+.muted{color:var(--muted)}
+.lead{font-size:26px;line-height:1.6;color:var(--muted);max-width:980px}
+.grow{flex:1;min-height:0}
+.cols{display:grid;gap:24px}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.box{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:24px 26px}
+.box h3{margin:0 0 10px;font-size:24px}
+.box p{margin:0;font-size:19px;line-height:1.55;color:var(--muted)}
+.num{font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.tag{display:inline-block;border-radius:8px;padding:4px 12px;font-size:16px;font-weight:700}
+.t-red{background:var(--red-soft);color:var(--red)}.t-green{background:var(--green-soft);color:var(--green)}
+.t-amber{background:var(--amber-soft);color:var(--amber)}.t-blue{background:var(--accent-soft);color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:20px}
+th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:16px;color:var(--muted);font-weight:600;background:var(--soft)}
+.quote{border-left:6px solid var(--accent);background:var(--accent-soft);border-radius:0 16px 16px 0;padding:28px 34px;font-size:26px;line-height:1.65}
+.quote b{color:var(--accent)}
+.steps{display:flex;align-items:stretch;gap:14px}
+.step{flex:1;background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:22px;position:relative}
+.step.hot{border:2px solid var(--red);background:var(--red-soft)}
+.step b{display:block;font-size:22px;margin-bottom:6px}
+.step span{font-size:18px;color:var(--muted);line-height:1.5}
+.arrow{align-self:center;font-size:28px;color:var(--muted)}
+.flow{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:center;gap:0}
+.node{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:20px 22px;text-align:center}
+.node b{display:block;font-size:21px;margin-bottom:4px}
+.node span{font-size:16px;color:var(--muted)}
+.node.main{border:2px solid var(--accent);background:var(--accent-soft)}
+.harrow{text-align:center;font-size:30px;color:var(--muted)}
+.outs{display:grid;gap:12px}
+.big{font-size:84px;font-weight:800;line-height:1;color:var(--accent);letter-spacing:-.03em}
+.case{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.time-old{color:var(--muted);text-decoration:line-through;font-size:26px}
+.time-new{color:var(--red);font-weight:800;font-size:40px}
+.foot{position:absolute;left:80px;right:80px;bottom:26px;display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+a{color:var(--accent)}
+/* 2페이지 글자 크기 */
+.s-bg .steps{gap:14px;margin-top:6px}
+.s-bg .step{padding:34px 24px;display:flex;align-items:center;justify-content:center;text-align:center}
+.s-bg .step b{font-size:30px;margin-bottom:0;line-height:1.35}
+.s-bg .step span{font-size:21px;line-height:1.55}
+.s-bg .arrow{font-size:32px}
+.s-bg .box{padding:26px 30px}
+.s-bg .box .num{font-size:17px}
+.s-bg .box h3{font-size:28px;margin-bottom:10px}
+.s-bg .box p{font-size:21px}
+.cover{justify-content:center;background:linear-gradient(135deg,var(--accent-soft),var(--stage) 60%)}
+.cover .meta{margin-top:36px;font-size:20px;color:var(--muted)}
+.end{justify-content:center;align-items:center;text-align:center}
+.link{display:inline-block;margin-top:18px;font-size:30px;font-weight:700;padding:16px 30px;border:2px solid var(--accent);border-radius:14px;text-decoration:none}
+ul.clean{margin:0;padding-left:26px}
+ul.clean li{margin-bottom:10px}
+/* 하단 조작 막대 */
+#bar{position:fixed;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.08)}
+#prog{height:100%;width:0;background:var(--accent);transition:width .3s}
+#ctrl{position:fixed;right:16px;bottom:14px;display:flex;gap:6px;align-items:center;font-size:13px;color:#9aa3b2;opacity:.25;transition:opacity .2s}
+#ctrl:hover{opacity:1}
+#ctrl button{background:#1d2128;color:#e7eaf0;border:1px solid #2e343e;border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
+#help{position:fixed;left:16px;bottom:14px;font-size:12px;color:#667085;opacity:.5}
+@media print{
+  html,body{overflow:visible;background:#fff}
+  #viewport{position:static;display:block}
+  #deck{transform:none !important;height:auto}
+  .slide{position:relative;opacity:1;visibility:visible;page-break-after:always;height:720px}
+  #bar,#ctrl,#help{display:none}
+}
+</style>
+</head>
+<body>
+<div id="viewport"><div id="deck">
+
+  <!-- 1. 표지 -->
+  <section class="slide cover">
+    <div style="font-size:28px;font-weight:800;color:var(--ink);letter-spacing:-.01em;margin-bottom:28px">경평물류</div>
+    <div class="kicker">바이브코딩 업무 자동화 사례</div>
+    <h1>모선 일정 변경 확인판</h1>
+    <p class="lead">부산 북항 터미널 선석배정현황을 자동으로 조회해,<br>입항·출항 예정시간이 바뀐 모선만 바로 알려주는 도구</p>
+    <div class="meta">허치슨 · 신선대 · 감만 &nbsp;|&nbsp; 자동 조회 &nbsp;|&nbsp; 변경 시 Windows 알림</div>
+  </section>
+
+  <!-- 2. 업무 배경 -->
+  <section class="slide s-bg">
+    <div class="kicker">01 · 업무 배경</div>
+    <h2>양하분 확인: 모선 일정이 바뀌었는지 계속 지켜보는 일</h2>
+    <div class="steps">
+      <div class="step"><b>① 양하분<br>모선 확인</b></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>② 터미널<br>사이트 검색</b></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>③ 입항·출항 시간 확인</b></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>④ 안내</b></div>
+    </div>
+    <div class="grow"></div>
+    <div class="box"><div class="num">영향</div><h3>늦게 알면 일정 잡기 비효율적</h3><p>모선 지연으로 다음 날 화물 진행 불가</p></div>
+  </section>
+
+  <!-- 5. 문제 정의 -->
+  <section class="slide">
+    <div class="kicker">02 · 문제 정의</div>
+    <h2>일정이 바뀐 것을 수시로 확인하는 점이 비효율적</h2>
+    <div class="quote">
+      모선 일정은 <b>수시로 지연되거나 당겨진다.</b>
+      이전 시간을 기록해 두지 않아, 바뀌었는지 알려면 <b>모든 모선을 터미널 사이트에서 다시 검색하고 기억과 비교</b>해야 한다.
+      바뀐 게 없어도 같은 수고가 반복되고, 변경을 늦게 알면 <b>안내가 늦어져</b> 배차·반입 일정을 다시 잡아야 한다.
+    </div>
+    <div class="grow"></div>
+    <div class="cols c2">
+      <div class="box"><h3>그래서 필요한 것</h3><p>터미널 일정을 자동으로 가져와 <b>직전 안내 시간과 비교</b>하고, <b>바뀐 모선만</b> 바로 보여주는 도구</p></div>
+      <div class="box"><h3>원칙</h3><p>확정과 발신은 사람이 한다. 화면의 시간은 "조회 시점 기준 예정시간"으로만 표시한다.</p></div>
+    </div>
+  </section>
+
+  <!-- 6. 구조 -->
+  <section class="slide">
+    <div class="kicker">03 · 해결 구조</div>
+    <h2>1시간마다 자동으로 조회하고, 바뀌면 알린다</h2>
+    <div class="flow">
+      <div class="outs">
+        <div class="node"><b>허치슨</b><span>선석배정현황</span></div>
+        <div class="node"><b>신선대 · 감만 (BPT)</b><span>선석배정현황</span></div>
+      </div>
+      <div class="harrow">→</div>
+      <div class="node main"><b>선석조회 프로그램</b><span>작업 스케줄러로 1시간마다 실행<br>두 사이트 조회 → 결과 저장</span></div>
+      <div class="harrow">→</div>
+      <div class="outs">
+        <div class="node"><b>확인판 화면</b><span>추가한 모선만 찾아 비교</span></div>
+        <div class="node"><b>Windows 알림</b><span>기준시간과 달라지면 즉시</span></div>
+        <div class="node"><b>웹 (Vercel)</b><span>GitHub 업로드 후 자동 배포</span></div>
+      </div>
+    </div>
+    <div class="grow"></div>
+    <p class="muted">서버·API 키 없이 동작 · 입력한 모선 목록은 각자 브라우저에만 저장</p>
+  </section>
+
+  <!-- 7. 기능 -->
+  <section class="slide">
+    <div class="kicker">04 · 주요 기능</div>
+    <h2>모선명만 넣으면 된다</h2>
+    <div class="cols c3 grow" style="align-content:start">
+      <div class="box"><div class="num">모선 추가</div><h3>모선명 · 항차 · 터미널</h3><p>시간은 입력하지 않아도 사이트 조회 결과에서 선명으로 찾아 자동으로 채움</p></div>
+      <div class="box"><div class="num">변경 감지</div><h3>바뀐 모선만 위로</h3><p>안내 기준시간과 비교해 지연·당겨짐 시간을 빨간색으로 표시</p></div>
+      <div class="box"><div class="num">시간 점검</div><h3>버튼 한 번으로 전체 점검</h3><p>이상 없음 / 변경 / 못 찾음 / 기준 등록 필요로 나눠 보여줌</p></div>
+      <div class="box"><div class="num">안내 초안</div><h3>격식체 메일 초안</h3><p>변경 전후 시간과 조회 기준 시각을 담은 초안 자동 작성 · 복사</p></div>
+      <div class="box"><div class="num">변경 알림</div><h3>Windows 알림</h3><p>확인판을 닫아 둬도 1시간마다 확인해 같은 변경은 한 번만 알림</p></div>
+      <div class="box"><div class="num">이력</div><h3>조회 이력 보관</h3><p>모선명을 누르면 조회 시점별 시간 변화를 확인</p></div>
+    </div>
+  </section>
+
+  <!-- 8. 실제 사례 -->
+  <section class="slide">
+    <div class="kicker">05 · 실제로 잡아낸 변경 (2026-11-18)</div>
+    <h2>모선만 입력해 두면 추적은 자동화</h2>
+    <div class="case grow">
+      <div class="box">
+        <span class="tag t-red">지연</span>
+        <h3 style="margin-top:14px;font-size:30px">TY INCHEON · 허치슨</h3>
+        <p style="margin-bottom:18px">오전 사이에만 접안예정이 여러 번 바뀜</p>
+        <div class="time-old">11/20 09:00 (안내 기준)</div>
+        <div class="time-new">11/20 19:00</div>
+        <p style="margin-top:12px"><b style="color:var(--red)">10시간 지연</b> → 확인 필요 목록 + Windows 알림</p>
+      </div>
+      <div class="box">
+        <span class="tag t-blue">당겨짐</span>
+        <h3 style="margin-top:14px;font-size:30px">VICTORY STAR · 허치슨</h3>
+        <p style="margin-bottom:18px">1시간 단위의 작은 변경도 놓치지 않음</p>
+        <div class="time-old">11/19 14:00 (안내 기준)</div>
+        <div class="time-new">11/19 13:00</div>
+        <p style="margin-top:12px"><b style="color:var(--accent)">1시간 당겨짐</b> → 자동 조회에서 감지 · 알림</p>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:18px">같은 시각 추적 중이던 나머지 모선은 '이상 없음' — 다시 검색할 필요 없음</p>
+  </section>
+
+  <!-- 9. 역할 분담 -->
+  <section class="slide">
+    <div class="kicker">06 · 사람과 자동화의 역할</div>
+    <h2>반복은 자동화가, 판단과 발신은 사람이</h2>
+    <table>
+      <thead><tr><th style="width:50%">자동화가 맡는 부분</th><th>사람이 확인·결정하는 부분</th></tr></thead>
+      <tbody>
+        <tr><td>1시간마다 선석배정현황 조회</td><td>바뀐 시간을 터미널 화면에서 재확인</td></tr>
+        <tr><td>직전 안내 시간 보관, 새 시간과 비교</td><td>모선명 표기 차이 · 항차 일치 여부</td></tr>
+        <tr><td>지연·당겨짐 계산, 바뀐 모선만 표시 · 알림</td><td>이메일 안내 <b>발송</b> (초안은 자동)</td></tr>
+        <tr><td>안내 초안 작성</td><td>배차·반입 일정 재조정 판단</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 10. 성공 기준 -->
+  <section class="slide">
+    <div class="kicker">07 · 성공의 기준</div>
+    <h2>무엇이 나아지면 성공인가</h2>
+    <div class="cols c3 grow" style="align-content:start">
+      <div class="box"><div class="big" style="font-size:56px;line-height:84px">자동화</div><h3 style="margin-top:14px">반복 검색</h3><p>모선마다 다시 검색하던 일을 자동 조회가 대신하고, 바뀐 모선만 다시 확인한다</p></div>
+      <div class="box"><div class="big" style="font-size:56px;line-height:84px">신속함</div><h3 style="margin-top:14px">변경 즉시 파악</h3><p>1시간마다 자동으로 조회해, 바뀐 일정을 바로 알고 먼저 안내한다</p></div>
+      <div class="box"><div class="big" style="font-size:56px;line-height:84px">알림</div><h3 style="margin-top:14px">Windows 알림</h3><p>확인판을 닫아 두어도 일정이 바뀌면 PC 화면에 바로 알림이 뜬다</p></div>
+    </div>
+  </section>
+
+  <!-- 11. 한계·다음 -->
+  <section class="slide">
+    <div class="kicker">08 · 한계와 다음 단계</div>
+    <h2>지금 할 수 없는 것, 다음에 할 것</h2>
+    <div class="cols c2 grow" style="align-content:start">
+      <div class="box">
+        <h3>현재 한계</h3>
+        <ul class="clean" style="color:var(--muted)">
+          <li style="font-size:19px">PC가 켜져 있어야 자동 조회 · 웹 갱신</li>
+          <li style="font-size:19px">북항 터미널만 사용 가능</li>
+          <li style="font-size:19px">메일 알림은 발송 방법 결정 후 연결</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>다음 단계</h3>
+        <ul class="clean" style="color:var(--muted)">
+          <li style="font-size:19px">도입 전후 수치 측정 (조회 횟수 · 놓침 · 차질)</li>
+          <li style="font-size:19px">메일 알림 연결 (사내 메일 서버 또는 Outlook)</li>
+          <li style="font-size:19px">신항 터미널 확대 검토</li>
+          <li style="font-size:19px">반입 확인 · 프리타임 일정과 연계</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. 데모·마무리 -->
+  <section class="slide end">
+    <div class="kicker">데모</div>
+    <h1 style="font-size:48px">직접 확인해 보세요</h1>
+    <p class="lead" style="text-align:center">허치슨 · 신선대 · 감만 선석배정현황 기준 · 1시간마다 자동 갱신</p>
+    <a class="link" href="https://vessel-board.vercel.app" target="_blank" rel="noopener">vessel-board.vercel.app</a>
+    <p class="muted" style="margin-top:40px">감사합니다</p>
+  </section>
+
+</div></div>
+
+<div id="bar"><div id="prog"></div></div>
+<div id="help">← → 이동 · F 전체화면</div>
+<div id="ctrl">
+  <button id="prev" aria-label="이전">◀</button>
+  <span id="count">1 / 1</span>
+  <button id="next" aria-label="다음">▶</button>
+  <button id="fs" aria-label="전체화면">⛶</button>
+</div>
+
+<script>
+const slides = [...document.querySelectorAll('.slide')];
+const deck = document.getElementById('deck');
+let cur = 0;
+function fit(){
+  const s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+  deck.style.transform = `scale(${s})`;
+}
+function show(i){
+  cur = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((el, k) => el.classList.toggle('on', k === cur));
+  document.getElementById('count').textContent = `${cur + 1} / ${slides.length}`;
+  document.getElementById('prog').style.width = `${(cur + 1) / slides.length * 100}%`;
+  try{ history.replaceState(null, '', '#' + (cur + 1)); }catch(e){}
+}
+function fullscreen(){
+  if(document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+}
+document.addEventListener('keydown', e => {
+  if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){ e.preventDefault(); show(cur + 1); }
+  if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){ e.preventDefault(); show(cur - 1); }
+  if(e.key === 'Home') show(0);
+  if(e.key === 'End') show(slides.length - 1);
+  if(e.key === 'f' || e.key === 'F') fullscreen();
+});
+document.getElementById('prev').onclick = () => show(cur - 1);
+document.getElementById('next').onclick = () => show(cur + 1);
+document.getElementById('fs').onclick = fullscreen;
+// 화면 클릭: 오른쪽 2/3 다음, 왼쪽 1/3 이전 (링크·버튼 클릭은 제외)
+document.getElementById('viewport').addEventListener('click', e => {
+  if(e.target.closest('a,button')) return;
+  show(e.clientX > window.innerWidth / 3 ? cur + 1 : cur - 1);
+});
+// 터치 스와이프
+let tx = null;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+document.addEventListener('touchend', e => {
+  if(tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx;
+  if(Math.abs(dx) > 50) show(dx < 0 ? cur + 1 : cur - 1);
+  tx = null;
+});
+window.addEventListener('resize', fit);
+fit();
+show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>
