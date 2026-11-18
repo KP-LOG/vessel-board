@@ -80,6 +80,13 @@ a{color:var(--accent)}
 .s-bg .box .num{font-size:17px}
 .s-bg .box h3{font-size:28px;margin-bottom:10px}
 .s-bg .box p{font-size:21px}
+/* 목차 */
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;align-content:start}
+.toc-item{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--line);border-radius:14px;background:var(--soft);text-decoration:none;color:var(--ink)}
+.toc-item:hover{border-color:var(--accent);background:var(--accent-soft)}
+.toc-n{font-size:22px;font-weight:800;color:var(--accent)}
+.toc-t{font-size:24px;font-weight:700}
+.toc-p{font-size:16px;color:var(--muted)}
 .cover{justify-content:center;background:linear-gradient(135deg,var(--accent-soft),var(--stage) 60%)}
 .cover .meta{margin-top:36px;font-size:20px;color:var(--muted)}
 .end{justify-content:center;align-items:center;text-align:center}
@@ -114,10 +121,27 @@ ul.clean li{margin-bottom:10px}
     <div class="meta">허치슨 · 신선대 · 감만 &nbsp;|&nbsp; 자동 조회 &nbsp;|&nbsp; 변경 시 Windows 알림</div>
   </section>
 
+  <!-- 목차 -->
+  <section class="slide">
+    <div class="kicker">목차</div>
+    <h2>발표 순서</h2>
+    <div class="toc grow">
+        <a class="toc-item" href="#3" data-go="3"><span class="toc-n">01</span><span class="toc-t">업무 배경</span><span class="toc-p">3</span></a>
+        <a class="toc-item" href="#4" data-go="4"><span class="toc-n">02</span><span class="toc-t">문제 정의</span><span class="toc-p">4</span></a>
+        <a class="toc-item" href="#5" data-go="5"><span class="toc-n">03</span><span class="toc-t">해결 구조</span><span class="toc-p">5</span></a>
+        <a class="toc-item" href="#6" data-go="6"><span class="toc-n">04</span><span class="toc-t">주요 기능</span><span class="toc-p">6</span></a>
+        <a class="toc-item" href="#7" data-go="7"><span class="toc-n">05</span><span class="toc-t">실제로 잡아낸 변경</span><span class="toc-p">7</span></a>
+        <a class="toc-item" href="#9" data-go="9"><span class="toc-n">06</span><span class="toc-t">사람과 자동화의 역할</span><span class="toc-p">9</span></a>
+        <a class="toc-item" href="#10" data-go="10"><span class="toc-n">07</span><span class="toc-t">성공의 기준</span><span class="toc-p">10</span></a>
+        <a class="toc-item" href="#11" data-go="11"><span class="toc-n">08</span><span class="toc-t">한계와 다음 단계</span><span class="toc-p">11</span></a>
+        <a class="toc-item" href="#12" data-go="12"><span class="toc-n">▶</span><span class="toc-t">데모</span><span class="toc-p">12</span></a>
+    </div>
+  </section>
+
   <!-- 2. 업무 배경 -->
   <section class="slide s-bg">
     <div class="kicker">01 · 업무 배경</div>
-    <h2>양하분 확인: 모선 일정이 바뀌었는지 계속 지켜보는 일</h2>
+    <h2>양하분 확인: 모선 일정이 바뀌었는지 수시로 지켜보는 일</h2>
     <div class="steps">
       <div class="step"><b>① 양하분<br>모선 확인</b></div>
       <div class="arrow">→</div>
@@ -162,11 +186,10 @@ ul.clean li{margin-bottom:10px}
       <div class="outs">
         <div class="node"><b>확인판 화면</b><span>추가한 모선만 찾아 비교</span></div>
         <div class="node"><b>Windows 알림</b><span>기준시간과 달라지면 즉시</span></div>
-        <div class="node"><b>웹 (Vercel)</b><span>GitHub 업로드 후 자동 배포</span></div>
       </div>
     </div>
     <div class="grow"></div>
-    <p class="muted">서버·API 키 없이 동작 · 입력한 모선 목록은 각자 브라우저에만 저장</p>
+    <p class="muted">입력한 모선 목록은 각자 브라우저에만 저장</p>
   </section>
 
   <!-- 7. 기능 -->
@@ -323,6 +346,9 @@ document.addEventListener('keydown', e => {
 document.getElementById('prev').onclick = () => show(cur - 1);
 document.getElementById('next').onclick = () => show(cur + 1);
 document.getElementById('fs').onclick = fullscreen;
+document.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', e => {
+  e.preventDefault(); e.stopPropagation(); show(parseInt(a.dataset.go, 10) - 1);
+}));
 // 화면 클릭: 오른쪽 2/3 다음, 왼쪽 1/3 이전 (링크·버튼 클릭은 제외)
 document.getElementById('viewport').addEventListener('click', e => {
   if(e.target.closest('a,button')) return;
