@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-18T12:52",
+   "fetchedAt": "2026-11-18T13:00",
    "count": 70,
    "rows": [
     {
@@ -104,7 +104,7 @@ window.BERTH_DATA = {
      "voyage": "",
      "berth": "2",
      "eta": "2026-11-19T06:00",
-     "etd": "2026-11-20T04:00",
+     "etd": "2026-11-20T03:00",
      "closing": "2026-11-18T21:00",
      "vessel": "STARSHIP AQUILA",
      "line": "NSS",
@@ -920,7 +920,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-18T12:52",
+   "fetchedAt": "2026-11-18T13:00",
    "count": 120,
    "rows": [
     {
