@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-20T08:40",
+   "fetchedAt": "2026-11-20T08:46",
    "count": 69,
    "rows": [
     {
@@ -64,9 +64,9 @@ window.BERTH_DATA = {
      "vvd": "CKP172",
      "voyage": "",
      "berth": "감만1 B",
-     "eta": "2026-11-21T04:00",
-     "etd": "2026-11-21T12:00",
-     "closing": "2026-11-20T18:00",
+     "eta": "2026-11-21T05:00",
+     "etd": "2026-11-21T16:00",
+     "closing": "2026-11-20T19:00",
      "vessel": "PACIFIC MONACO",
      "line": "CKL",
      "state": "예정"
@@ -907,7 +907,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-20T08:40",
+   "fetchedAt": "2026-11-20T08:46",
    "count": 125,
    "rows": [
     {
