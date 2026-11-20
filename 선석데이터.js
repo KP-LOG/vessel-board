@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-20T16:00",
+   "fetchedAt": "2026-11-20T17:00",
    "count": 70,
    "rows": [
     {
@@ -13,7 +13,7 @@ window.BERTH_DATA = {
      "voyage": "2613N/2614S",
      "berth": "3",
      "eta": "2026-11-20T08:00",
-     "etd": "2026-11-21T09:00",
+     "etd": "2026-11-21T11:00",
      "closing": "2026-11-19T22:00",
      "vessel": "KMTC TAIPEIS",
      "line": "KMD",
@@ -78,7 +78,7 @@ window.BERTH_DATA = {
      "voyage": "",
      "berth": "감만1 A",
      "eta": "2026-11-21T07:00",
-     "etd": "2026-11-21T17:00",
+     "etd": "2026-11-21T18:00",
      "closing": "2026-11-20T21:00",
      "vessel": "PACIFIC MONACO",
      "line": "CKL",
@@ -90,9 +90,9 @@ window.BERTH_DATA = {
      "vvd": "KZPL12",
      "voyage": "",
      "berth": "3",
-     "eta": "2026-11-21T11:00",
+     "eta": "2026-11-21T13:00",
      "etd": "2026-11-22T12:00",
-     "closing": "2026-11-21T01:00",
+     "closing": "2026-11-21T03:00",
      "vessel": "ZHONG GU PENG LAI",
      "line": "KMD",
      "state": "접안중"
@@ -920,7 +920,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-20T16:00",
+   "fetchedAt": "2026-11-20T17:00",
    "count": 119,
    "rows": [
     {
@@ -1074,7 +1074,7 @@ window.BERTH_DATA = {
      "berth": "4",
      "eta": "2026-11-21T02:00",
      "etd": "2026-11-21T18:00",
-     "closing": "2026-11-20T16:00",
+     "closing": null,
      "vessel": "STAR CLIPPER",
      "line": "NSL",
      "state": "예정"
@@ -1142,19 +1142,6 @@ window.BERTH_DATA = {
      "closing": "2026-11-21T08:00",
      "vessel": "HONOR GLORY",
      "line": "NSL",
-     "state": "예정"
-    },
-    {
-     "id": "BP-ISPR-1",
-     "terminal": "감만",
-     "vvd": "ISPR-1",
-     "voyage": "ISPR-1",
-     "berth": "7",
-     "eta": "2026-11-21T19:00",
-     "etd": "2026-11-22T22:00",
-     "closing": "2026-11-21T17:00",
-     "vessel": "INTERASIA INSPIRATION",
-     "line": "IAL",
      "state": "예정"
     },
     {
@@ -1233,6 +1220,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-21T12:00",
      "vessel": "KOTA GAYA",
      "line": "PIL",
+     "state": "예정"
+    },
+    {
+     "id": "BP-ISPR-1",
+     "terminal": "감만",
+     "vvd": "ISPR-1",
+     "voyage": "ISPR-1",
+     "berth": "7",
+     "eta": "2026-11-21T23:00",
+     "etd": "2026-11-23T02:00",
+     "closing": "2026-11-21T17:00",
+     "vessel": "INTERASIA INSPIRATION",
+     "line": "IAL",
      "state": "예정"
     },
     {
