@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-23T17:00",
+   "fetchedAt": "2026-11-23T18:00",
    "count": 59,
    "rows": [
     {
@@ -777,7 +777,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-23T17:00",
+   "fetchedAt": "2026-11-23T18:00",
    "count": 118,
    "rows": [
     {
@@ -911,19 +911,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-KKSZ-4",
-     "terminal": "감만",
-     "vvd": "KKSZ-4",
-     "voyage": "KKSZ-4",
-     "berth": "6",
-     "eta": "2026-11-24T02:00",
-     "etd": "2026-11-24T18:00",
-     "closing": "2026-11-23T19:00",
-     "vessel": "KMTC SHENZHEN",
-     "line": "KMD",
-     "state": "예정"
-    },
-    {
      "id": "BP-HKEP-86",
      "terminal": "신선대",
      "vvd": "HKEP-86",
@@ -934,6 +921,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-23T18:00",
      "vessel": "HAKATA EXPRESS",
      "line": "HAS",
+     "state": "예정"
+    },
+    {
+     "id": "BP-KKSZ-4",
+     "terminal": "감만",
+     "vvd": "KKSZ-4",
+     "voyage": "KKSZ-4",
+     "berth": "6",
+     "eta": "2026-11-24T04:00",
+     "etd": "2026-11-24T20:00",
+     "closing": "2026-11-23T18:00",
+     "vessel": "KMTC SHENZHEN",
+     "line": "KMD",
      "state": "예정"
     },
     {
@@ -1041,19 +1041,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-W308-8",
-     "terminal": "감만",
-     "vvd": "W308-8",
-     "voyage": "W308-8",
-     "berth": "6",
-     "eta": "2026-11-24T20:00",
-     "etd": "2026-11-25T22:00",
-     "closing": "2026-11-24T06:00",
-     "vessel": "WAN HAI 308",
-     "line": "WHL",
-     "state": "예정"
-    },
-    {
      "id": "BP-DPGL-5",
      "terminal": "신선대",
      "vvd": "DPGL-5",
@@ -1064,6 +1051,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-24T12:00",
      "vessel": "PEGASUS GLORY",
      "line": "DYS",
+     "state": "예정"
+    },
+    {
+     "id": "BP-W308-8",
+     "terminal": "감만",
+     "vvd": "W308-8",
+     "voyage": "W308-8",
+     "berth": "6",
+     "eta": "2026-11-24T22:00",
+     "etd": "2026-11-26T00:00",
+     "closing": "2026-11-24T12:00",
+     "vessel": "WAN HAI 308",
+     "line": "WHL",
      "state": "예정"
     },
     {
