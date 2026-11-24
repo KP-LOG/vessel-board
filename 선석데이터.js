@@ -3,8 +3,8 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-24T16:00",
-   "count": 61,
+   "fetchedAt": "2026-11-24T17:00",
+   "count": 63,
    "rows": [
     {
      "id": "HK-KSOD38",
@@ -696,6 +696,32 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "HK-CFOS34",
+     "terminal": "허치슨",
+     "vvd": "CFOS34",
+     "voyage": "",
+     "berth": "3 A",
+     "eta": "2026-12-02T17:00",
+     "etd": "2026-12-03T06:00",
+     "closing": "2026-11-30T00:00",
+     "vessel": "COSCO FOS",
+     "line": "COH",
+     "state": "예정"
+    },
+    {
+     "id": "HK-DJFD84",
+     "terminal": "허치슨",
+     "vvd": "DJFD84",
+     "voyage": "",
+     "berth": "감만1 A",
+     "eta": "2026-12-03T07:00",
+     "etd": "2026-12-03T18:00",
+     "closing": "2026-12-02T21:00",
+     "vessel": "DONGJIN FIDES",
+     "line": "DJS",
+     "state": "예정"
+    },
+    {
      "id": "HK-KSCV39",
      "terminal": "허치슨",
      "vvd": "KSCV39",
@@ -803,7 +829,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-24T16:00",
+   "fetchedAt": "2026-11-24T17:00",
    "count": 122,
    "rows": [
     {
@@ -944,7 +970,7 @@ window.BERTH_DATA = {
      "berth": "4",
      "eta": "2026-11-25T01:00",
      "etd": "2026-11-26T00:00",
-     "closing": "2026-11-24T15:00",
+     "closing": "2026-11-24T20:00",
      "vessel": "SAWASDEE THAILAND",
      "line": "HAS",
      "state": "예정"
@@ -1136,7 +1162,7 @@ window.BERTH_DATA = {
      "terminal": "신선대",
      "vvd": "KBTR-20",
      "voyage": "KBTR-20",
-     "berth": "1",
+     "berth": "2",
      "eta": "2026-11-26T08:00",
      "etd": "2026-11-26T23:00",
      "closing": "2026-11-25T22:00",
@@ -1490,7 +1516,7 @@ window.BERTH_DATA = {
      "berth": "6",
      "eta": "2026-11-28T14:00",
      "etd": "2026-11-29T10:00",
-     "closing": "2026-11-28T02:00",
+     "closing": "2026-11-28T04:00",
      "vessel": "YANGTZE TRADER",
      "line": "SKR",
      "state": "예정"
