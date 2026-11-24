@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-24T08:30",
+   "fetchedAt": "2026-11-24T09:00",
    "count": 57,
    "rows": [
     {
@@ -13,7 +13,7 @@ window.BERTH_DATA = {
      "voyage": "",
      "berth": "1",
      "eta": "2026-11-24T10:00",
-     "etd": "2026-11-25T05:00",
+     "etd": "2026-11-25T07:00",
      "closing": "2026-11-24T00:00",
      "vessel": "SUNNY ORCHID",
      "line": "KMD",
@@ -25,9 +25,9 @@ window.BERTH_DATA = {
      "vvd": "DPDR23",
      "voyage": "",
      "berth": "3",
-     "eta": "2026-11-24T12:00",
+     "eta": "2026-11-24T14:00",
      "etd": "2026-11-25T06:00",
-     "closing": "2026-11-24T03:00",
+     "closing": "2026-11-24T04:00",
      "vessel": "PEGASUS DREAM",
      "line": "DYS",
      "state": "접안중"
@@ -59,19 +59,6 @@ window.BERTH_DATA = {
      "state": "접안중"
     },
     {
-     "id": "HK-CKAB45",
-     "terminal": "허치슨",
-     "vvd": "CKAB45",
-     "voyage": "",
-     "berth": "1",
-     "eta": "2026-11-25T07:00",
-     "etd": "2026-11-25T18:00",
-     "closing": "2026-11-24T21:00",
-     "vessel": "ATLANTIC BRIDGE",
-     "line": "CKL",
-     "state": "예정"
-    },
-    {
      "id": "HK-KSKN09",
      "terminal": "허치슨",
      "vvd": "KSKN09",
@@ -82,6 +69,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-24T23:00",
      "vessel": "SKY SUNSHINE",
      "line": "KMD",
+     "state": "예정"
+    },
+    {
+     "id": "HK-CKAB45",
+     "terminal": "허치슨",
+     "vvd": "CKAB45",
+     "voyage": "",
+     "berth": "1",
+     "eta": "2026-11-25T09:00",
+     "etd": "2026-11-25T18:00",
+     "closing": "2026-11-24T23:00",
+     "vessel": "ATLANTIC BRIDGE",
+     "line": "CKL",
      "state": "예정"
     },
     {
@@ -751,7 +751,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-24T08:30",
+   "fetchedAt": "2026-11-24T09:00",
    "count": 121,
    "rows": [
     {
@@ -2133,19 +2133,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-OLSF-2",
-     "terminal": "신선대",
-     "vvd": "OLSF-2",
-     "voyage": "OLSF-2",
-     "berth": "5",
-     "eta": "2026-12-01T14:00",
-     "etd": "2026-12-02T08:00",
-     "closing": "2026-12-01T04:00",
-     "vessel": "LOS ANDES BRIDGE",
-     "line": "ONE",
-     "state": "예정"
-    },
-    {
      "id": "BP-KSKJ-18",
      "terminal": "신선대",
      "vvd": "KSKJ-18",
@@ -2156,6 +2143,19 @@ window.BERTH_DATA = {
      "closing": "2026-12-01T06:00",
      "vessel": "SKY JADE",
      "line": "KMD",
+     "state": "예정"
+    },
+    {
+     "id": "BP-OLSF-2",
+     "terminal": "신선대",
+     "vvd": "OLSF-2",
+     "voyage": "OLSF-2",
+     "berth": "5",
+     "eta": "2026-12-01T16:00",
+     "etd": "2026-12-02T10:00",
+     "closing": "2026-12-01T06:00",
+     "vessel": "LOS ANDES BRIDGE",
+     "line": "ONE",
      "state": "예정"
     },
     {
