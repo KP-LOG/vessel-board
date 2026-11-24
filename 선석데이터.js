@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-24T12:00",
+   "fetchedAt": "2026-11-24T13:00",
    "count": 59,
    "rows": [
     {
@@ -777,7 +777,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-24T12:00",
+   "fetchedAt": "2026-11-24T13:00",
    "count": 122,
    "rows": [
     {
@@ -843,7 +843,7 @@ window.BERTH_DATA = {
      "closing": "2026-11-23T14:00",
      "vessel": "TRANSIT TAVAYZA",
      "line": "KRC",
-     "state": "예정"
+     "state": "접안중"
     },
     {
      "id": "BP-DPPA-46",
@@ -856,7 +856,7 @@ window.BERTH_DATA = {
      "closing": "2026-11-23T18:00",
      "vessel": "PEGASUS PETA",
      "line": "DYS",
-     "state": "예정"
+     "state": "접안중"
     },
     {
      "id": "BP-CKSV-29",
@@ -895,19 +895,6 @@ window.BERTH_DATA = {
      "closing": "2026-11-23T20:00",
      "vessel": "WAN HAI 315",
      "line": "WHL",
-     "state": "예정"
-    },
-    {
-     "id": "BP-MJEP-64",
-     "terminal": "신선대",
-     "vvd": "MJEP-64",
-     "voyage": "MJEP-64",
-     "berth": "1",
-     "eta": "2026-11-25T01:00",
-     "etd": "2026-11-25T18:00",
-     "closing": "2026-11-24T15:00",
-     "vessel": "MOJI EXPRESS",
-     "line": "SKR",
      "state": "예정"
     },
     {
@@ -973,6 +960,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-24T07:00",
      "vessel": "TS PUSAN",
      "line": "TSL",
+     "state": "예정"
+    },
+    {
+     "id": "BP-MJEP-64",
+     "terminal": "신선대",
+     "vvd": "MJEP-64",
+     "voyage": "MJEP-64",
+     "berth": "1",
+     "eta": "2026-11-25T04:00",
+     "etd": "2026-11-25T17:00",
+     "closing": "2026-11-24T18:00",
+     "vessel": "MOJI EXPRESS",
+     "line": "SKR",
      "state": "예정"
     },
     {
