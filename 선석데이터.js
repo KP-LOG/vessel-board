@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-25T16:00",
+   "fetchedAt": "2026-11-25T17:00",
    "count": 68,
    "rows": [
     {
@@ -182,7 +182,7 @@ window.BERTH_DATA = {
      "voyage": "",
      "berth": "감만1 A",
      "eta": "2026-11-27T10:00",
-     "etd": "2026-11-28T00:00",
+     "etd": "2026-11-28T04:00",
      "closing": "2026-11-27T00:00",
      "vessel": "SKY FLOWER",
      "line": "CKL",
@@ -193,7 +193,7 @@ window.BERTH_DATA = {
      "terminal": "허치슨",
      "vvd": "NSTP18",
      "voyage": "",
-     "berth": "3",
+     "berth": "감만1 B",
      "eta": "2026-11-27T19:00",
      "etd": "2026-11-28T12:00",
      "closing": "2026-11-27T09:00",
@@ -219,7 +219,7 @@ window.BERTH_DATA = {
      "terminal": "허치슨",
      "vvd": "HOVY90",
      "voyage": "",
-     "berth": "감만1 B",
+     "berth": "1",
      "eta": "2026-11-28T01:00",
      "etd": "2026-11-28T10:00",
      "closing": "2026-11-27T15:00",
@@ -254,19 +254,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "HK-KHBH43",
-     "terminal": "허치슨",
-     "vvd": "KHBH43",
-     "voyage": "",
-     "berth": "감만1 B",
-     "eta": "2026-11-28T12:00",
-     "etd": "2026-11-29T04:00",
-     "closing": "2026-11-28T02:00",
-     "vessel": "HONOR BRIGHT",
-     "line": "KMD",
-     "state": "예정"
-    },
-    {
      "id": "HK-CSYH28",
      "terminal": "허치슨",
      "vvd": "CSYH28",
@@ -277,6 +264,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-28T04:00",
      "vessel": "SONG YUN HE",
      "line": "COH",
+     "state": "예정"
+    },
+    {
+     "id": "HK-KHBH43",
+     "terminal": "허치슨",
+     "vvd": "KHBH43",
+     "voyage": "",
+     "berth": "감만1 B",
+     "eta": "2026-11-28T14:00",
+     "etd": "2026-11-29T04:00",
+     "closing": "2026-11-28T04:00",
+     "vessel": "HONOR BRIGHT",
+     "line": "KMD",
      "state": "예정"
     },
     {
@@ -894,7 +894,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-25T16:00",
+   "fetchedAt": "2026-11-25T17:00",
    "count": 122,
    "rows": [
     {
@@ -908,7 +908,7 @@ window.BERTH_DATA = {
      "closing": "2026-11-24T19:00",
      "vessel": "JI YONG",
      "line": "POL",
-     "state": "접안중"
+     "state": "작업완료"
     },
     {
      "id": "BP-W308-8",
