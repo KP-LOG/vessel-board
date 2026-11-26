@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-26T12:00",
+   "fetchedAt": "2026-11-26T13:00",
    "count": 63,
    "rows": [
     {
@@ -829,7 +829,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-26T12:00",
+   "fetchedAt": "2026-11-26T13:00",
    "count": 116,
    "rows": [
     {
@@ -973,7 +973,7 @@ window.BERTH_DATA = {
      "closing": "2026-11-26T10:00",
      "vessel": "DONGJIN FORTUNE",
      "line": "DJS",
-     "state": "예정"
+     "state": "접안중"
     },
     {
      "id": "BP-NSVY-47",
