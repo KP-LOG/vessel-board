@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-27T08:26",
+   "fetchedAt": "2026-11-27T09:00",
    "count": 64,
    "rows": [
     {
@@ -38,9 +38,9 @@ window.BERTH_DATA = {
      "vvd": "EAPR16",
      "voyage": "",
      "berth": "2",
-     "eta": "2026-11-27T13:00",
+     "eta": "2026-11-27T14:00",
      "etd": "2026-11-28T02:00",
-     "closing": "2026-11-27T03:00",
+     "closing": "2026-11-27T04:00",
      "vessel": "PROSRICH",
      "line": "EAS",
      "state": "접안중"
@@ -579,19 +579,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "HK-CKVS56",
-     "terminal": "허치슨",
-     "vvd": "CKVS56",
-     "voyage": "",
-     "berth": "감만1 B",
-     "eta": "2026-12-03T08:00",
-     "etd": "2026-12-03T18:00",
-     "closing": "2026-12-02T22:00",
-     "vessel": "VICTORY STAR",
-     "line": "CKL",
-     "state": "예정"
-    },
-    {
      "id": "HK-OCBD10",
      "terminal": "허치슨",
      "vvd": "OCBD10",
@@ -615,6 +602,19 @@ window.BERTH_DATA = {
      "closing": "2026-12-03T12:00",
      "vessel": "SAWASDEE VEGA",
      "line": "SKR",
+     "state": "예정"
+    },
+    {
+     "id": "HK-CKVS56",
+     "terminal": "허치슨",
+     "vvd": "CKVS56",
+     "voyage": "",
+     "berth": "감만1 B",
+     "eta": "2026-12-04T02:00",
+     "etd": "2026-12-04T13:00",
+     "closing": "2026-12-03T16:00",
+     "vessel": "VICTORY STAR",
+     "line": "CKL",
      "state": "예정"
     },
     {
@@ -842,7 +842,7 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-27T08:26",
+   "fetchedAt": "2026-11-27T09:00",
    "count": 118,
    "rows": [
     {
@@ -1132,6 +1132,19 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "BP-PCTJ-53",
+     "terminal": "감만",
+     "vvd": "PCTJ-53",
+     "voyage": "PCTJ-53",
+     "berth": "6",
+     "eta": "2026-11-28T15:00",
+     "etd": "2026-11-29T04:00",
+     "closing": "2026-11-28T05:00",
+     "vessel": "PACIFIC TIANJIN",
+     "line": "HAS",
+     "state": "예정"
+    },
+    {
      "id": "BP-KSVD-30",
      "terminal": "신선대",
      "vvd": "KSVD-30",
@@ -1155,19 +1168,6 @@ window.BERTH_DATA = {
      "closing": "2026-11-28T09:00",
      "vessel": "SENDAI TRADER",
      "line": "SKR",
-     "state": "예정"
-    },
-    {
-     "id": "BP-PCTJ-53",
-     "terminal": "감만",
-     "vvd": "PCTJ-53",
-     "voyage": "PCTJ-53",
-     "berth": "6",
-     "eta": "2026-11-29T01:00",
-     "etd": "2026-11-29T14:00",
-     "closing": "2026-11-28T15:00",
-     "vessel": "PACIFIC TIANJIN",
-     "line": "HAS",
      "state": "예정"
     },
     {
