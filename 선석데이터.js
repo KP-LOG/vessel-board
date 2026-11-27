@@ -3,7 +3,7 @@ window.BERTH_DATA = {
  "sources": {
   "HKTL": {
    "label": "허치슨",
-   "fetchedAt": "2026-11-27T11:00",
+   "fetchedAt": "2026-11-27T12:00",
    "count": 62,
    "rows": [
     {
@@ -13,7 +13,7 @@ window.BERTH_DATA = {
      "voyage": "2618W/2618W",
      "berth": "감만1 B",
      "eta": "2026-11-27T01:00",
-     "etd": "2026-11-27T16:00",
+     "etd": "2026-11-27T17:00",
      "closing": "2026-11-26T15:00",
      "vessel": "SKY JADE",
      "line": "KMD",
@@ -816,8 +816,8 @@ window.BERTH_DATA = {
   },
   "BPT": {
    "label": "신선대·감만",
-   "fetchedAt": "2026-11-27T11:00",
-   "count": 120,
+   "fetchedAt": "2026-11-27T12:00",
+   "count": 119,
    "rows": [
     {
      "id": "BP-EADL-34",
@@ -931,7 +931,7 @@ window.BERTH_DATA = {
      "berth": "4",
      "eta": "2026-11-27T18:00",
      "etd": "2026-11-28T12:00",
-     "closing": "2026-11-27T16:00",
+     "closing": "2026-11-27T11:00",
      "vessel": "HEUNG-A XIAMEN",
      "line": "HAS",
      "state": "예정"
@@ -1041,19 +1041,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-HSWH-58",
-     "terminal": "신선대",
-     "vvd": "HSWH-58",
-     "voyage": "HSWH-58",
-     "berth": "3",
-     "eta": "2026-11-28T13:00",
-     "etd": "2026-11-29T01:00",
-     "closing": "2026-11-28T03:00",
-     "vessel": "HANSUNG WEIHAI",
-     "line": "SKR",
-     "state": "예정"
-    },
-    {
      "id": "BP-HRON-25",
      "terminal": "신선대",
      "vvd": "HRON-25",
@@ -1064,19 +1051,6 @@ window.BERTH_DATA = {
      "closing": "2026-11-28T03:00",
      "vessel": "HONOR OCEAN",
      "line": "HAS",
-     "state": "예정"
-    },
-    {
-     "id": "BP-YTTR-43",
-     "terminal": "감만",
-     "vvd": "YTTR-43",
-     "voyage": "YTTR-43",
-     "berth": "6",
-     "eta": "2026-11-28T13:00",
-     "etd": "2026-11-29T09:00",
-     "closing": "2026-11-28T03:00",
-     "vessel": "YANGTZE TRADER",
-     "line": "SKR",
      "state": "예정"
     },
     {
@@ -1103,6 +1077,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-28T05:00",
      "vessel": "PACIFIC TIANJIN",
      "line": "HAS",
+     "state": "예정"
+    },
+    {
+     "id": "BP-HSWH-58",
+     "terminal": "신선대",
+     "vvd": "HSWH-58",
+     "voyage": "HSWH-58",
+     "berth": "3",
+     "eta": "2026-11-28T16:00",
+     "etd": "2026-11-29T04:00",
+     "closing": "2026-11-28T06:00",
+     "vessel": "HANSUNG WEIHAI",
+     "line": "SKR",
      "state": "예정"
     },
     {
@@ -1171,6 +1158,19 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "BP-KSCE-16",
+     "terminal": "감만",
+     "vvd": "KSCE-16",
+     "voyage": "KSCE-16",
+     "berth": "8",
+     "eta": "2026-11-29T03:00",
+     "etd": "2026-11-29T19:00",
+     "closing": "2026-11-28T17:00",
+     "vessel": "SUNNY CAMELLIA",
+     "line": "KMD",
+     "state": "예정"
+    },
+    {
      "id": "BP-KSDY-22",
      "terminal": "신선대",
      "vvd": "KSDY-22",
@@ -1202,24 +1202,24 @@ window.BERTH_DATA = {
      "vvd": "HTVY-47",
      "voyage": "HTVY-47",
      "berth": "6",
-     "eta": "2026-11-29T07:00",
-     "etd": "2026-11-29T19:00",
-     "closing": "2026-11-28T21:00",
+     "eta": "2026-11-29T06:00",
+     "etd": "2026-11-29T18:00",
+     "closing": "2026-11-28T20:00",
      "vessel": "HAKATA VOYAGER",
      "line": "SKR",
      "state": "예정"
     },
     {
-     "id": "BP-STYT-8",
+     "id": "BP-YTTR-43",
      "terminal": "감만",
-     "vvd": "STYT-8",
-     "voyage": "STYT-8",
+     "vvd": "YTTR-43",
+     "voyage": "YTTR-43",
      "berth": "8",
-     "eta": "2026-11-29T11:00",
-     "etd": "2026-11-29T21:00",
-     "closing": "2026-11-29T01:00",
-     "vessel": "SITC YANTAI",
-     "line": "SIT",
+     "eta": "2026-11-29T09:00",
+     "etd": "2026-11-30T05:00",
+     "closing": "2026-11-28T23:00",
+     "vessel": "YANGTZE TRADER",
+     "line": "SKR",
      "state": "예정"
     },
     {
@@ -1227,7 +1227,7 @@ window.BERTH_DATA = {
      "terminal": "감만",
      "vvd": "SPSO-46",
      "voyage": "SPSO-46",
-     "berth": "8",
+     "berth": "7",
      "eta": "2026-11-29T13:00",
      "etd": "2026-11-30T05:00",
      "closing": "2026-11-29T03:00",
@@ -1275,19 +1275,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-GNZA-9",
-     "terminal": "감만",
-     "vvd": "GNZA-9",
-     "voyage": "GNZA-9",
-     "berth": "6",
-     "eta": "2026-11-29T18:00",
-     "etd": "2026-11-30T15:00",
-     "closing": "2026-11-29T08:00",
-     "vessel": "TS GUANGZHOU",
-     "line": "TSL",
-     "state": "예정"
-    },
-    {
      "id": "BP-SWRG-14",
      "terminal": "신선대",
      "vvd": "SWRG-14",
@@ -1301,15 +1288,28 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-STSH-9",
+     "id": "BP-GNZA-9",
      "terminal": "감만",
-     "vvd": "STSH-9",
-     "voyage": "STSH-9",
+     "vvd": "GNZA-9",
+     "voyage": "GNZA-9",
      "berth": "6",
-     "eta": "2026-11-29T21:00",
-     "etd": "2026-11-30T10:00",
-     "closing": "2026-11-29T11:00",
-     "vessel": "SITC SHANGHAI",
+     "eta": "2026-11-29T20:00",
+     "etd": "2026-11-30T17:00",
+     "closing": "2026-11-29T10:00",
+     "vessel": "TS GUANGZHOU",
+     "line": "TSL",
+     "state": "예정"
+    },
+    {
+     "id": "BP-STYT-8",
+     "terminal": "감만",
+     "vvd": "STYT-8",
+     "voyage": "STYT-8",
+     "berth": "7",
+     "eta": "2026-11-29T22:00",
+     "etd": "2026-11-30T08:00",
+     "closing": "2026-11-29T12:00",
+     "vessel": "SITC YANTAI",
      "line": "SIT",
      "state": "예정"
     },
@@ -1324,19 +1324,6 @@ window.BERTH_DATA = {
      "closing": "2026-11-29T13:00",
      "vessel": "SHANGHAI VOYAGER",
      "line": "SKR",
-     "state": "예정"
-    },
-    {
-     "id": "BP-ANBM-2",
-     "terminal": "감만",
-     "vvd": "ANBM-2",
-     "voyage": "ANBM-2",
-     "berth": "8",
-     "eta": "2026-11-29T23:00",
-     "etd": "2026-11-30T14:00",
-     "closing": "2026-11-29T13:00",
-     "vessel": "ANITTA BHUM",
-     "line": "RCL",
      "state": "예정"
     },
     {
@@ -1366,6 +1353,19 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "BP-STSH-9",
+     "terminal": "감만",
+     "vvd": "STSH-9",
+     "voyage": "STSH-9",
+     "berth": "6",
+     "eta": "2026-11-30T07:00",
+     "etd": "2026-11-30T20:00",
+     "closing": "2026-11-29T21:00",
+     "vessel": "SITC SHANGHAI",
+     "line": "SIT",
+     "state": "예정"
+    },
+    {
      "id": "BP-TSGJ-17",
      "terminal": "감만",
      "vvd": "TSGJ-17",
@@ -1376,6 +1376,19 @@ window.BERTH_DATA = {
      "closing": "2026-11-29T21:00",
      "vessel": "TANG SHAN GANG JI 1",
      "line": "HHS",
+     "state": "예정"
+    },
+    {
+     "id": "BP-W501-1",
+     "terminal": "감만",
+     "vvd": "W501-1",
+     "voyage": "W501-1",
+     "berth": "7",
+     "eta": "2026-11-30T10:00",
+     "etd": "2026-12-01T10:00",
+     "closing": "2026-11-30T00:00",
+     "vessel": "WAN HAI 501",
+     "line": "WHL",
      "state": "예정"
     },
     {
@@ -1392,19 +1405,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-W501-1",
-     "terminal": "감만",
-     "vvd": "W501-1",
-     "voyage": "W501-1",
-     "berth": "7",
-     "eta": "2026-11-30T11:00",
-     "etd": "2026-12-01T11:00",
-     "closing": "2026-11-30T01:00",
-     "vessel": "WAN HAI 501",
-     "line": "WHL",
-     "state": "예정"
-    },
-    {
      "id": "BP-KPRG-22",
      "terminal": "신선대",
      "vvd": "KPRG-22",
@@ -1415,32 +1415,6 @@ window.BERTH_DATA = {
      "closing": "2026-11-30T04:00",
      "vessel": "PROGRESS",
      "line": "KMD",
-     "state": "예정"
-    },
-    {
-     "id": "BP-EYNT-29",
-     "terminal": "감만",
-     "vvd": "EYNT-29",
-     "voyage": "EYNT-29",
-     "berth": "8",
-     "eta": "2026-11-30T16:00",
-     "etd": "2026-12-01T15:00",
-     "closing": "2026-11-30T06:00",
-     "vessel": "EASLINE YANTAI",
-     "line": "EAS",
-     "state": "예정"
-    },
-    {
-     "id": "BP-W522-1",
-     "terminal": "감만",
-     "vvd": "W522-1",
-     "voyage": "W522-1",
-     "berth": "6",
-     "eta": "2026-11-30T17:00",
-     "etd": "2026-12-01T11:00",
-     "closing": "2026-11-30T07:00",
-     "vessel": "WAN HAI 522",
-     "line": "WHL",
      "state": "예정"
     },
     {
@@ -1457,16 +1431,29 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-KSCE-16",
+     "id": "BP-W522-1",
      "terminal": "감만",
-     "vvd": "KSCE-16",
-     "voyage": "KSCE-16",
+     "vvd": "W522-1",
+     "voyage": "W522-1",
      "berth": "8",
      "eta": "2026-11-30T18:00",
-     "etd": "2026-12-01T10:00",
+     "etd": "2026-12-01T12:00",
      "closing": "2026-11-30T08:00",
-     "vessel": "SUNNY CAMELLIA",
-     "line": "KMD",
+     "vessel": "WAN HAI 522",
+     "line": "WHL",
+     "state": "예정"
+    },
+    {
+     "id": "BP-EYNT-29",
+     "terminal": "감만",
+     "vvd": "EYNT-29",
+     "voyage": "EYNT-29",
+     "berth": "6",
+     "eta": "2026-11-30T19:00",
+     "etd": "2026-12-01T18:00",
+     "closing": "2026-11-30T09:00",
+     "vessel": "EASLINE YANTAI",
+     "line": "EAS",
      "state": "예정"
     },
     {
@@ -1509,6 +1496,19 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "BP-KSLC-22",
+     "terminal": "감만",
+     "vvd": "KSLC-22",
+     "voyage": "KSLC-22",
+     "berth": "6",
+     "eta": "2026-12-01T02:00",
+     "etd": "2026-12-01T15:00",
+     "closing": "2026-11-30T16:00",
+     "vessel": "SUNNY LILAC",
+     "line": "KMD",
+     "state": "예정"
+    },
+    {
      "id": "BP-DPPA-47",
      "terminal": "신선대",
      "vvd": "DPPA-47",
@@ -1548,24 +1548,11 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-SPYO-34",
-     "terminal": "감만",
-     "vvd": "SPYO-34",
-     "voyage": "SPYO-34",
-     "berth": "7",
-     "eta": "2026-12-01T12:00",
-     "etd": "2026-12-02T01:00",
-     "closing": "2026-12-01T02:00",
-     "vessel": "POS YOKOHAMA",
-     "line": "POL",
-     "state": "예정"
-    },
-    {
      "id": "BP-YCRT-11",
      "terminal": "감만",
      "vvd": "YCRT-11",
      "voyage": "YCRT-11",
-     "berth": "8",
+     "berth": "7",
      "eta": "2026-12-01T12:00",
      "etd": "2026-12-02T10:00",
      "closing": "2026-12-01T02:00",
@@ -1578,10 +1565,10 @@ window.BERTH_DATA = {
      "terminal": "감만",
      "vvd": "TJBG-3",
      "voyage": "TJBG-3",
-     "berth": "6",
-     "eta": "2026-12-01T13:00",
-     "etd": "2026-12-02T07:00",
-     "closing": "2026-12-01T03:00",
+     "berth": "8",
+     "eta": "2026-12-01T14:00",
+     "etd": "2026-12-02T08:00",
+     "closing": "2026-12-01T04:00",
      "vessel": "TIANJIN BRIDGE",
      "line": "SKR",
      "state": "예정"
@@ -1600,6 +1587,19 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "BP-SPYO-34",
+     "terminal": "감만",
+     "vvd": "SPYO-34",
+     "voyage": "SPYO-34",
+     "berth": "7",
+     "eta": "2026-12-01T16:00",
+     "etd": "2026-12-02T05:00",
+     "closing": "2026-12-01T06:00",
+     "vessel": "POS YOKOHAMA",
+     "line": "POL",
+     "state": "예정"
+    },
+    {
      "id": "BP-PCBJ-27",
      "terminal": "신선대",
      "vvd": "PCBJ-27",
@@ -1613,19 +1613,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-KSLC-22",
-     "terminal": "감만",
-     "vvd": "KSLC-22",
-     "voyage": "KSLC-22",
-     "berth": "7",
-     "eta": "2026-12-01T17:00",
-     "etd": "2026-12-02T06:00",
-     "closing": "2026-12-01T07:00",
-     "vessel": "SUNNY LILAC",
-     "line": "KMD",
-     "state": "예정"
-    },
-    {
      "id": "BP-AKTR-40",
      "terminal": "신선대",
      "vvd": "AKTR-40",
@@ -1636,6 +1623,19 @@ window.BERTH_DATA = {
      "closing": "2026-12-01T10:00",
      "vessel": "AKITA TRADER",
      "line": "SKR",
+     "state": "예정"
+    },
+    {
+     "id": "BP-ANBM-2",
+     "terminal": "감만",
+     "vvd": "ANBM-2",
+     "voyage": "ANBM-2",
+     "berth": "6",
+     "eta": "2026-12-01T20:00",
+     "etd": "2026-12-02T11:00",
+     "closing": "2026-12-01T10:00",
+     "vessel": "ANITTA BHUM",
+     "line": "RCL",
      "state": "예정"
     },
     {
@@ -1747,10 +1747,10 @@ window.BERTH_DATA = {
      "terminal": "감만",
      "vvd": "FTLX-36",
      "voyage": "FTLX-36",
-     "berth": "6",
-     "eta": "2026-12-02T09:00",
-     "etd": "2026-12-02T22:00",
-     "closing": "2026-12-01T23:00",
+     "berth": "8",
+     "eta": "2026-12-02T10:00",
+     "etd": "2026-12-02T23:00",
+     "closing": "2026-12-02T00:00",
      "vessel": "FU TU LIAN XING",
      "line": "SIT",
      "state": "예정"
@@ -1782,29 +1782,29 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-JIOY-39",
-     "terminal": "감만",
-     "vvd": "JIOY-39",
-     "voyage": "JIOY-39",
-     "berth": "7",
-     "eta": "2026-12-02T12:00",
-     "etd": "2026-12-03T01:00",
-     "closing": "2026-12-02T02:00",
-     "vessel": "JI YONG",
-     "line": "POL",
-     "state": "예정"
-    },
-    {
      "id": "BP-KKSG-11",
      "terminal": "감만",
      "vvd": "KKSG-11",
      "voyage": "KKSG-11",
-     "berth": "8",
+     "berth": "7",
      "eta": "2026-12-02T12:00",
      "etd": "2026-12-03T02:00",
      "closing": "2026-12-02T02:00",
      "vessel": "KMTC SINGAPORE",
      "line": "KMD",
+     "state": "예정"
+    },
+    {
+     "id": "BP-JIOY-39",
+     "terminal": "감만",
+     "vvd": "JIOY-39",
+     "voyage": "JIOY-39",
+     "berth": "8",
+     "eta": "2026-12-02T12:00",
+     "etd": "2026-12-03T01:00",
+     "closing": "2026-12-02T02:00",
+     "vessel": "JI YONG",
+     "line": "POL",
      "state": "예정"
     },
     {
@@ -1878,9 +1878,9 @@ window.BERTH_DATA = {
      "vvd": "DJFT-51",
      "voyage": "DJFT-51",
      "berth": "7",
-     "eta": "2026-12-02T23:00",
-     "etd": "2026-12-03T09:00",
-     "closing": "2026-12-02T13:00",
+     "eta": "2026-12-02T21:00",
+     "etd": "2026-12-03T07:00",
+     "closing": "2026-12-02T11:00",
      "vessel": "DONGJIN FORTUNE",
      "line": "DJS",
      "state": "예정"
@@ -1925,19 +1925,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-KSRO-25",
-     "terminal": "신선대",
-     "vvd": "KSRO-25",
-     "voyage": "KSRO-25",
-     "berth": "3",
-     "eta": "2026-12-03T07:00",
-     "etd": "2026-12-04T03:00",
-     "closing": "2026-12-02T21:00",
-     "vessel": "SUNNY ROSE",
-     "line": "KMD",
-     "state": "예정"
-    },
-    {
      "id": "BP-HAJN-46",
      "terminal": "신선대",
      "vvd": "HAJN-46",
@@ -1948,6 +1935,19 @@ window.BERTH_DATA = {
      "closing": "2026-12-02T21:00",
      "vessel": "HEUNG-A JANICE",
      "line": "HAS",
+     "state": "예정"
+    },
+    {
+     "id": "BP-KSRO-25",
+     "terminal": "신선대",
+     "vvd": "KSRO-25",
+     "voyage": "KSRO-25",
+     "berth": "3",
+     "eta": "2026-12-03T07:00",
+     "etd": "2026-12-04T03:00",
+     "closing": "2026-12-02T21:00",
+     "vessel": "SUNNY ROSE",
+     "line": "KMD",
      "state": "예정"
     },
     {
@@ -1977,16 +1977,16 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-TSGJ-18",
+     "id": "BP-EAOS-43",
      "terminal": "감만",
-     "vvd": "TSGJ-18",
-     "voyage": "TSGJ-18",
+     "vvd": "EAOS-43",
+     "voyage": "EAOS-43",
      "berth": "7",
-     "eta": "2026-12-03T10:00",
-     "etd": "2026-12-03T19:00",
-     "closing": "2026-12-03T00:00",
-     "vessel": "TANG SHAN GANG JI 1",
-     "line": "HHS",
+     "eta": "2026-12-03T09:00",
+     "etd": "2026-12-04T08:00",
+     "closing": "2026-12-02T23:00",
+     "vessel": "EASLINE OSAKA",
+     "line": "EAS",
      "state": "예정"
     },
     {
@@ -1994,25 +1994,25 @@ window.BERTH_DATA = {
      "terminal": "감만",
      "vvd": "PSUC-41",
      "voyage": "PSUC-41",
-     "berth": "7",
-     "eta": "2026-12-03T11:00",
-     "etd": "2026-12-04T02:00",
-     "closing": "2026-12-03T01:00",
+     "berth": "8",
+     "eta": "2026-12-03T10:00",
+     "etd": "2026-12-04T01:00",
+     "closing": "2026-12-03T00:00",
      "vessel": "PANCON SUCCESS",
      "line": "PCL",
      "state": "예정"
     },
     {
-     "id": "BP-EAOS-43",
+     "id": "BP-TSGJ-18",
      "terminal": "감만",
-     "vvd": "EAOS-43",
-     "voyage": "EAOS-43",
-     "berth": "7",
-     "eta": "2026-12-03T16:00",
-     "etd": "2026-12-04T15:00",
-     "closing": "2026-12-03T06:00",
-     "vessel": "EASLINE OSAKA",
-     "line": "EAS",
+     "vvd": "TSGJ-18",
+     "voyage": "TSGJ-18",
+     "berth": "8",
+     "eta": "2026-12-03T10:00",
+     "etd": "2026-12-03T19:00",
+     "closing": "2026-12-03T00:00",
+     "vessel": "TANG SHAN GANG JI 1",
+     "line": "HHS",
      "state": "예정"
     },
     {
@@ -2081,6 +2081,19 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
+     "id": "BP-NSEP-15",
+     "terminal": "신선대",
+     "vvd": "NSEP-15",
+     "voyage": "NSEP-15",
+     "berth": "4",
+     "eta": "2026-12-04T06:00",
+     "etd": "2026-12-04T22:00",
+     "closing": "2026-12-03T20:00",
+     "vessel": "STAR EXPRESS",
+     "line": "NSL",
+     "state": "예정"
+    },
+    {
      "id": "BP-KSKJ-18",
      "terminal": "신선대",
      "vvd": "KSKJ-18",
@@ -2094,16 +2107,16 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-NSEP-15",
-     "terminal": "신선대",
-     "vvd": "NSEP-15",
-     "voyage": "NSEP-15",
-     "berth": "4",
+     "id": "BP-STED-2",
+     "terminal": "감만",
+     "vvd": "STED-2",
+     "voyage": "STED-2",
+     "berth": "8",
      "eta": "2026-12-04T06:00",
-     "etd": "2026-12-04T22:00",
+     "etd": "2026-12-04T19:00",
      "closing": "2026-12-03T20:00",
-     "vessel": "STAR EXPRESS",
-     "line": "NSL",
+     "vessel": "SITC SHENGDE",
+     "line": "SIT",
      "state": "예정"
     },
     {
@@ -2133,32 +2146,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-STED-2",
-     "terminal": "감만",
-     "vvd": "STED-2",
-     "voyage": "STED-2",
-     "berth": "8",
-     "eta": "2026-12-04T09:00",
-     "etd": "2026-12-04T22:00",
-     "closing": "2026-12-03T23:00",
-     "vessel": "SITC SHENGDE",
-     "line": "SIT",
-     "state": "예정"
-    },
-    {
-     "id": "BP-EADL-35",
-     "terminal": "감만",
-     "vvd": "EADL-35",
-     "voyage": "EADL-35",
-     "berth": "7",
-     "eta": "2026-12-04T12:00",
-     "etd": "2026-12-05T11:00",
-     "closing": "2026-12-04T02:00",
-     "vessel": "EASLINE DALIAN",
-     "line": "EAS",
-     "state": "예정"
-    },
-    {
      "id": "BP-HAHP-30",
      "terminal": "신선대",
      "vvd": "HAHP-30",
@@ -2169,6 +2156,19 @@ window.BERTH_DATA = {
      "closing": "2026-12-04T03:00",
      "vessel": "HEUNG-A HAIPHONG",
      "line": "HAS",
+     "state": "예정"
+    },
+    {
+     "id": "BP-EADL-35",
+     "terminal": "감만",
+     "vvd": "EADL-35",
+     "voyage": "EADL-35",
+     "berth": "7",
+     "eta": "2026-12-04T13:00",
+     "etd": "2026-12-05T12:00",
+     "closing": "2026-12-04T03:00",
+     "vessel": "EASLINE DALIAN",
+     "line": "EAS",
      "state": "예정"
     },
     {
@@ -2250,19 +2250,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-ATSH-35",
-     "terminal": "감만",
-     "vvd": "ATSH-35",
-     "voyage": "ATSH-35",
-     "berth": "6",
-     "eta": "2026-12-05T05:00",
-     "etd": "2026-12-05T19:00",
-     "closing": "2026-12-04T19:00",
-     "vessel": "ATLANTIC SOUTH",
-     "line": "SKR",
-     "state": "예정"
-    },
-    {
      "id": "BP-JHYA-40",
      "terminal": "신선대",
      "vvd": "JHYA-40",
@@ -2315,19 +2302,6 @@ window.BERTH_DATA = {
      "state": "예정"
     },
     {
-     "id": "BP-KRHR-11",
-     "terminal": "감만",
-     "vvd": "KRHR-11",
-     "voyage": "KRHR-11",
-     "berth": "8",
-     "eta": "2026-12-05T09:00",
-     "etd": "2026-12-06T00:00",
-     "closing": "2026-12-04T23:00",
-     "vessel": "XIANG YUAN HE RUN",
-     "line": "KRC",
-     "state": "예정"
-    },
-    {
      "id": "BP-ZWYS-45",
      "terminal": "감만",
      "vvd": "ZWYS-45",
@@ -2338,6 +2312,19 @@ window.BERTH_DATA = {
      "closing": "2026-12-04T23:00",
      "vessel": "ZHONG WAI YUN SHENZHEN",
      "line": "SNL",
+     "state": "예정"
+    },
+    {
+     "id": "BP-KRHR-11",
+     "terminal": "감만",
+     "vvd": "KRHR-11",
+     "voyage": "KRHR-11",
+     "berth": "8",
+     "eta": "2026-12-05T09:00",
+     "etd": "2026-12-06T00:00",
+     "closing": "2026-12-04T23:00",
+     "vessel": "XIANG YUAN HE RUN",
+     "line": "KRC",
      "state": "예정"
     },
     {
